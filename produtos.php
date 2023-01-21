@@ -71,7 +71,6 @@
 </head>
 
 <body>
-
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Otica Rio Trombas</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
@@ -90,19 +89,19 @@
         <div class="position-sticky pt-3 sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+              <a class="nav-link active" aria-current="page" href="index.php">
                 <span data-feather="home" class="align-text-bottom"></span>
                 Painel de Informações
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="clientes.php">
                 <span data-feather="file" class="align-text-bottom"></span>
                 Clientes
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="produtos.php">
                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
                 Produtos
               </a>
@@ -172,7 +171,7 @@
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Cadastro de Clientes</h1>
+          <h1 class="h2">Cadastro de Produtos</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
               <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -187,68 +186,103 @@
         <!--Pagina inicio-->
 
         <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-          <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Novo Cliente - Dados Principais</div>
-          <!--grupo-->
-          <div class="row">
-            <!--linha-->
-            <div class="col-6">
-              <!--colunas-->
-              <div class="form-group">
-                <label for="nomeCliente">Nome:
+          <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Novo Produto</div>
+          <div class="form-group">
+            <label for="nomeCliente">Nome:
+              <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome" class="form-control">
+            </label>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-4">
+                <label for="nomeCliente">Referencia:
                   <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome" class="form-control">
                 </label>
               </div>
-              <div class="form-group">
-                <label for="enderecoCliente">RG:<input type="text" name="endereco" id="enderecoCliente"
-                    placeholder="Digite o Nome" class="form-control"></label>
+              <div class="col-4">
+                <label for="nomeCliente">Código GTIN (EAN-13):
+                  <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome" class="form-control">
+                </label>
               </div>
-            </div>
-            <div class="col-3">
-              <!--colunas-->
-              <div class="form-group">
-                <label for="enderecoCliente">Apelido:<input type="text" name="endereco" id="enderecoCliente"
-                    placeholder="Digite o Nome" class="form-control"></label>
-              </div>
-              <div class="form-group">
-                <label for="enderecoCliente">Orgão Emissor:<input type="text" name="endereco" id="enderecoCliente"
-                    placeholder="Digite o Nome" class="form-control"></label>
-              </div>
-
-            </div>
-            <div class="col-3">
-              <!--colunas-->
-              <div class="form-group">
-                <label for="enderecoCliente">CPF:<input type="text" name="endereco" id="enderecoCliente"
-                    placeholder="Digite o Nome" class="form-control"></label>
-              </div>
-              <div class="form-group">
-                <label for="enderecoCliente">Data de Nascimento:<input type="text" name="endereco" id="enderecoCliente"
-                    placeholder="Digite o Nome" class="form-control"></label>
+              <div class="col-4">
+                <label for="nomeCliente">Unidade:
+                  <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome" class="form-control">
+                </label>
               </div>
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col=3">
+              <label for="nomeCliente">Fornecedores:
+                <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome" class="form-control">
+              </label>
+            </div>
+          </div>
 
+
+
+
+
+
+        </div>
         <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-          <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Endereço</div>
+          <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Informações de Preço e Estoque</div>
+
+          <table class="table table-success table-striped-columns">
+            <tbody>
+              <tr>
+                <td>Custo</td>
+                <td>% Lucro</td>
+                <td>Lucro</td>
+                <td>Venda</td>
+                <td>Qtd Atual</td>
+                <td>Qtd Mínima</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td><input type="text" class="form-control" placeholder=""></td>
+                <td><input type="text" class="form-control" placeholder=""></td>
+                <td><input type="text" class="form-control" placeholder=""></td>
+                <td><input type="text" class="form-control" placeholder=""></td>
+                <td><input type="text" class="form-control" placeholder=""></td>
+                <td><input type="text" class="form-control" placeholder=""></td>
+              </tr>
+            </tbody>
+          </table>
+
+
         </div>
-        <!--botões-->
-        <div>
-          <div class="form-group center text-center">
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            <button type="submit" class="btn btn-secondary">Cancelar</button>
-            <button type="submit" class="btn btn-light">Limpar</button>
-          </div>
+        <div class="form-group">
+          <div class="alert alert-danger d-noneS" role="alert">ERRO: Preencha todos os campos</div>
+        </div>
 
-          <div class="form-group">
+        <div class="form-group center text-center">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-light">Limpar</button>
+        </div>
 
-            <div class="alert alert-danger d-noneS" role="alert">ERRO: Preencha todos os campos</div>
-
-          </div>
-
-      </main>
-      <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+        <!--fechamento de linha-->
     </div>
+
+  </div>
+  <!--fim do container pagina-->
+
+
+
+
+
+  </div>
+  <!--fim pagina-->
+
+
+
+  <!--botões-->
+  <div>
+    </main>
+    <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+  </div>
   </div>
   <!-- icones-->
   <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
