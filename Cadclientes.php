@@ -191,7 +191,8 @@
                     </div>
                 </div>
                 <!--Pagina inicio-->
-
+                <form action="ResCadastros.php" method="get">
+                <input type="hidden" name="tabela" id="tabela" value="cliente">   
                 <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
                     <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Novo Cliente - Dados Principais</div>
                     <!--grupo-->
@@ -377,43 +378,16 @@
                 <div class="form-group">
                     <!--alerta-->
                     <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
-
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Cadastro</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Modal body..
-                                <?php
-                                echo "teste";
-                                ?>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
         </div>
         <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
             <div class="form-group center text-center">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Enviar</button>
+                <button type="submit"class="btn btn-primary">Enviar</button>
                 <a class="btn btn-secondary" href="clientes.php" role="button">Cancelar</a>
                 <button type="submit" class="btn btn-light">Limpar</button>
             </div>
         </div>
+    
+    </form>
 
     </div>
     </div>
