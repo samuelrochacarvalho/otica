@@ -13,56 +13,56 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="js/maskCPF.js"></script>
     <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
-    }
 
-    .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
 
-    .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-    }
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
 
-    .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-    }
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
 
-    .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-    }
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
 
-    .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
     </style>
 
 
@@ -173,10 +173,11 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Cadastro de Clientes</h1>
+                    <h1 class="h2">Pesquisar Clientes</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Cadastrar Novo
+                                Cliente</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                         </div>
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
@@ -187,219 +188,100 @@
                 </div>
                 <!--Pagina inicio-->
 
-                <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Novo Cliente - Dados Principais</div>
-                    <!--grupo-->
-                    <div class="row">
-                        <!--linha-->
-                        <div class="col-6">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="nomeCliente">Nome:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="enderecoCliente">RG:<input type="text" name="endereco" id="enderecoCliente"
-                                        placeholder="Digite o Nome" class="form-control"></label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="enderecoCliente">Apelido:<input type="text" name="endereco"
-                                        id="enderecoCliente" placeholder="Digite o Nome" class="form-control"></label>
-                            </div>
-                            <div class="form-group">
-                                <label for="enderecoCliente">Orgão Emissor:<input type="text" name="endereco"
-                                        id="enderecoCliente" placeholder="Digite o Nome" class="form-control"></label>
-                            </div>
+                <body>
 
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="enderecoCliente">CPF:<input type="text" name="endereco" id="enderecoCliente"
-                                        placeholder="Digite o Nome" class="form-control"></label>
-                            </div>
-                            <div class="form-group">
-                                <label for="enderecoCliente">Data de Nascimento:<input type="text" name="endereco"
-                                        id="enderecoCliente" placeholder="Digite o Nome" class="form-control"></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Endereço:</div>
-                    <!--grupo-->
-                    <div class="row">
-                        <!--linha-->
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="nomeCliente">Rua:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="nomeCliente">Bairro:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="nomeCliente">QD:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="nomeCliente">Complemento:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="nomeCliente">LT:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="nomeCliente">Cidade:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="nomeCliente">N°:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
+                    <div class="container mt-4">
 
-                        </div>
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Detalhes dos Clientes
+                                            <a href="Cadclientes.php" class="btn btn-primary float-end">Novo Cliente</a>
+                                        </h4>
+                                    </div>
+                                    <div class="card-body">
 
-                <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Contato:</div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="nomeCliente">Telefone:
-                                        <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                            class="form-control">
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label for="nomeCliente">Identificação:
-                                        <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                            class="form-control">
-                                    </label>
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nome</th>
+                                                    <th>CPF</th>
+                                                    <th>Telefone</th>
+                                                    <th>cidade</th>
+                                                    <th>Ação</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                include "conexao.php";
+                                                $query = "SELECT * FROM clientes";
+                                                $query_run = mysqli_query($conn, $query);
+
+                                                if (mysqli_num_rows($query_run) > 0) {
+                                                    foreach ($query_run as $student) {
+                                                        ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?= $student['id_Clientes']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $student['nome']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $student['cpf']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $student['telefone']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $student['cidade']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <a href="student-view.php?id=<?= $student['id_Clientes']; ?>"
+                                                                    class="btn btn-info btn-sm">Visualizar</a>
+                                                                <a href="student-edit.php?id=<?= $student['id_Clientes']; ?>"
+                                                                    class="btn btn-success btn-sm">Editar</a>
+                                                                <form action="code.php" method="POST" class="d-inline">
+                                                                    <button type="submit" name="delete_student"
+                                                                        value="<?= $student['id_Clientes']; ?>"
+                                                                        class="btn btn-danger btn-sm">Deletar</button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                } else {
+                                                    echo "<h5> Nenhum aluno cadastrado </h5>";
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="col-6">
-                            <label for="nomeCliente">Email:
-                                <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-bod-tertiary rounded">Outros Dados:</div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="nomeCliente">Nome do Pai:
-                                <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
-                        </div>
-                        <div class="col-6">
-                            <label for="nomeCliente">Nome da Mãe:
-                                <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="nomeCliente">Nome do Responsavel:
-                                <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
-                        </div>
-                        <div class="col-6">
-                            <label for="nomeCliente">Sexo:
-                                <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="nomeCliente">Escolaridade:
-                                <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="nomeCliente">Observações importante:
-                                <input type="text" name="nome" id="nomeCliente"
-                                    placeholder="Digite informações Ex: 2º telefone, Proximidade, Referências Comerciais."
-                                    class="form-control">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <!--alerta-->
-                    <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
-                </div>
-                <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
-                    <div class="form-group center text-center">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="submit" class="btn btn-secondary">Cancelar</button>
-                        <button type="submit" class="btn btn-light">Limpar</button>
-                    </div>
-                </div>
-                
+                    <!--menu-->
+            </main>
+            <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
         </div>
-    </div>
-    <!--menu-->
-    </main>
-    <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
-    </div>
     </div>
     <!-- icones-->
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="dashboard.js"></script>
 </body>
 

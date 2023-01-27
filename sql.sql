@@ -147,4 +147,15 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 select * from clientes;
 select * from compra;
+
+select * from clientes where qd ="3";
+SELECT nome,nascimento FROM clientes WHERE nascimento = "10/11/1997";
 show tables;
+USE `mydb` ;
+CREATE TABLE students (
+    id INT(6) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(191) NOT NULL,
+    email VARCHAR(191) NOT NULL,
+    phone VARCHAR(191) NOT NULL,
+    course VARCHAR(191) NOT NULL
+);
