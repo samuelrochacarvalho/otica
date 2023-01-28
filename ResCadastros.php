@@ -193,13 +193,46 @@
                 <!--Pagina inicio-->
                 <?php
                 if (isset($_GET["tabela"]) and $_GET["tabela"] == "cliente") {
-                    echo "iniciar conexão com banco e insert cliente";
-                }else if(isset($_GET["tabela"]) and $_GET["tabela"] == "produto"){
+                    $nome = $_GET["nome"];
+                    $apelido = $_GET["apelido"];
+                    $cpf = $_GET["cpf"];
+                    $rg = $_GET["rg"];
+                    $emissor = $_GET["orgao"];
+                    $nascimento = $_GET["nascimento"];
+                    $rua = $_GET["rua"];
+                    $qd = $_GET["qd"];
+                    $lt = $_GET["lt"];
+                    $n = $_GET["n"];
+                    $bairro = $_GET["bairro"];
+                    $complemento = $_GET["comp"];
+                    $cidade = $_GET["cidade"];
+                    $telefone = $_GET["tel"];
+                    $identificacao = $_GET["ide"];
+                    $email = $_GET["email"];
+                    $pai = $_GET["pai"];
+                    $mae = $_GET["mae"];
+                    $escolaridade = $_GET["escolaridade"];
+                    $responsavel = $_GET["resp"];
+                    $informacao = $_GET["informacao"];
+                    $sexo = $_GET["sexo"];
+
+                    $sql = " INSERT INTO clientes (nome,apelido,cpf,rg,emissor,Nascimento,rua,qd,lt
+                    ,n,bairro,complemento,cidade,telefone,identificacao,email,pai,mae,responsavel
+                    ,sexo,escolaridade,observacao) VALUES ('$nome','$apelido','$cpf','$rg','$emissor','$nascimento','$rua','$qd','$lt','$n','$bairro','$complemento','$cidade','$telefone','$identificacao','$email','$pai','$mae','$responsavel','$sexo','$escolaridade','$informacao');";
+
+                    include "conexao.php";
+
+                    if (mysqli_query($conn, $sql)) {
+                        echo "<div class='alert alert-success' role='alert'>Cliente Cadastrado com Sucesso!</div>";
+                    } else {
+                        echo "<div class='alert alert-danger' role='alert'>Erro ao Cadastrar Cliente!</div>";
+                    }
+                    mysqli_close($conn);
+                } else if (isset($_GET["tabela"]) and $_GET["tabela"] == "produto") {
                     echo "iniciar conexão com banco e insert produto";
                 } else if (isset($_GET["tabela"]) and $_GET["tabela"] == "fornecedor") {
                     echo "iniciar conexão com banco e insert fornecedor";
-                }
-                else {
+                } else {
                     echo "<div class='alert alert-danger' role='alert'>
                     ERRO, NÃO ESPERADO... VERIFIQUE COM O DESENVOLVEDOR
                   </div>";

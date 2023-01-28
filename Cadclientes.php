@@ -192,204 +192,211 @@
                 </div>
                 <!--Pagina inicio-->
                 <form action="ResCadastros.php" method="get">
-                <input type="hidden" name="tabela" id="tabela" value="cliente">   
-                <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Novo Cliente - Dados Principais</div>
-                    <!--grupo-->
-                    <div class="row">
-                        <!--linha-->
-                        <div class="col-6">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="nomeCliente">Nome:
-                                    <input type="text" name="nome" id="nomeCliente" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="rg">RG:<input type="text" name="rg" id="rg" placeholder="Digite o Nome"
-                                        class="form-control"></label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="apelido">Apelido:<input type="text" name="apelido" id="apelido"
-                                        placeholder="Digite o Nome" class="form-control"></label>
-                            </div>
-                            <div class="form-group">
-                                <label for="emissor">Orgão Emissor:<input type="text" name="Emissor" id="emissor"
-                                        placeholder="Digite o Nome" class="form-control"></label>
-                            </div>
+                    <input type="hidden" name="tabela" id="tabela" value="cliente">
+                    <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
+                        <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Novo Cliente - Dados Principais</div>
+                        <!--grupo-->
+                        <br>
+                        <div class="row">
+                            <!--linha-->
+                            <div class="col-6">
+                                <!--colunas-->
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="nome">Nome:</label>
+                                    <input type="text" id="nome" name="nome" class="form-control"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
 
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="cpf">CPF:<input type="text" name="cpf" id="cpf" placeholder="Digite o Nome"
-                                        class="form-control"></label>
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="apelido">Apelido:</label>
+                                    <input type="text" id="apelido" name="apelido" class="form-control"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="nascimento">Data de Nascimento:<input type="text" name="nascimento"
-                                        id="nascimento" placeholder="Digite o Nome" class="form-control"></label>
+                            <div class="col-3">
+                                <!--colunas-->
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="rg">RG:</label>
+                                    <input type="text" id="rg" name="rg" class="form-control"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orgao">Orgão Emissor:</label>
+                                    <select id="orgao" name="orgao" class="form-select"
+                                        aria-label="Default select example" required>
+                                        <option value="" selected>Selecione</option>
+                                        <option value="1">DGPC</option>
+                                        <option value="2">PC</option>
+                                        <option value="3">SSP</option>
+                                        <option value="4">Outros</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-3">
+                                <!--colunas-->
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="cpf">CPF</label>
+                                    <input type="text" class="form-control"  id="cpf" name="cpf" oninput="mascara(this)" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nascimento">Data de Nascimento:<input type="date" name="nascimento"
+                                            id="nascimento" placeholder="" class="form-control" required>
+
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Endereço:</div>
-                    <!--grupo-->
-                    <div class="row">
-                        <!--linha-->
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="rua">Rua:
-                                    <input type="text" name="rua" id="rua" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
+                    <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
+                        <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Endereço:</div>
+                        <!--grupo-->
+                        <div class="row">
+                            <!--linha-->
+                            <div class="col-3">
+                                <!--colunas-->
+                                <div class="form-group">
+                                    <label for="rua">Rua:
+                                        <input type="text" name="rua" id="rua" placeholder="" class="form-control" required>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bairro">Bairro:
+                                        <input type="text" name="bairro" id="bairro" placeholder=""
+                                            class="form-control" required>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="bairro">Bairro:
-                                    <input type="text" name="bairro" id="bairro" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="qd">QD:
-                                    <input type="text" name="qd" id="qd" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="complemento">Complemento:
-                                    <input type="text" name="complemento" id="complemento" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="lt">LT:
-                                    <input type="text" name="lt" id="lt" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="cidade">Cidade:
-                                    <input type="text" name="cidade" id="cidade" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <!--colunas-->
-                            <div class="form-group">
-                                <label for="numero">N°:
-                                    <input type="text" name="numero" id="numero" placeholder="Digite o Nome"
-                                        class="form-control">
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Contato:</div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="telefone">Telefone:
-                                        <input type="text" name="telefone" id="telefone" placeholder="Digite o Nome"
+                            <div class="col-3">
+                                <!--colunas-->
+                                <div class="form-group">
+                                    <label for="qd">QD:
+                                        <input type="text" name="qd" id="qd" placeholder="" class="form-control" >
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comp">Complemento:
+                                        <input type="text" name="comp" id="comp" placeholder=""
                                             class="form-control">
                                     </label>
                                 </div>
-                                <div class="col-6">
-                                    <label for="identificacao">Identificação:
-                                        <input type="text" name="identificacao" id="identificacao"
-                                            placeholder="Digite o Nome" class="form-control">
+                            </div>
+                            <div class="col-3">
+                                <!--colunas-->
+                                <div class="form-group">
+                                    <label for="lt">LT:
+                                        <input type="text" name="lt" id="lt" placeholder="" class="form-control" >
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cidade">Cidade:
+                                        <input type="text" name="cidade" id="cidade" placeholder=""
+                                            class="form-control" required>
                                     </label>
                                 </div>
                             </div>
+                            <div class="col-3">
+                                <!--colunas-->
+                                <div class="form-group">
+                                    <label for="n">N°:
+                                        <input type="text" name="n" id="n" placeholder=""
+                                            class="form-control" required>
+                                    </label>
+                                </div>
 
-                        </div>
-                        <div class="col-6">
-                            <label for="email">Email:
-                                <input type="text" name="email" id="email" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
+                        <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Contato:</div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="tel">Telefone:
+                                            <input type="text" name="tel" id="tel" placeholder=""
+                                                class="form-control" required>
+                                        </label>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="ide">Identificação:
+                                            <input type="text" name="ide" id="ide" placeholder=""
+                                                class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-6">
+                                <label for="email">Email:
+                                    <input type="text" name="email" id="email" placeholder="" class="form-control">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
 
-                <div class="shadow p-3 mb-5 bg-body-tertiary rounded container">
-                    <div class="shadow-sm p-3 mb-1 bg-bod-tertiary rounded">Outros Dados:</div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="pai">Nome do Pai:
-                                <input type="text" name="pai" id="pai" placeholder="Digite o Nome" class="form-control">
-                            </label>
+                    <div class="shadow p-3 mb-5 bg-body-tertiary rounded container">
+                        <div class="shadow-sm p-3 mb-1 bg-bod-tertiary rounded">Outros Dados:</div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="pai">Nome do Pai:
+                                    <input type="text" name="pai" id="pai" placeholder="" class="form-control">
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <label for="mae">Nome da Mãe:
+                                    <input type="text" name="mae" id="mae" placeholder="" class="form-control" >
+                                </label>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <label for="mae">Nome da Mãe:
-                                <input type="text" name="mae" id="mae" placeholder="Digite o Nome" class="form-control">
-                            </label>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="responsavel">Nome do Responsavel:
+                                    <input type="text" name="resp" id="resp" placeholder=""
+                                        class="form-control">
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <label for="sexo">Sexo:
+                                    <input type="text" name="sexo" id="sexo" placeholder="" class="form-control" required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="escolaridade">Escolaridade:
+                                    <input type="text" name="escolaridade" id="escolaridade" placeholder=""
+                                        class="form-control" required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="informacao">Observações importante:
+                                    <input type="text" name="informacao" id="informacao"
+                                        placeholder="Digite informações Ex: 2º telefone, Proximidade, Referências Comerciais."
+                                        class="form-control">
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="responsavel">Nome do Responsavel:
-                                <input type="text" name="responsavel" id="responsavel" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
-                        </div>
-                        <div class="col-6">
-                            <label for="sexo">Sexo:
-                                <input type="text" name="sexo" id="sexo" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
+                    <div class="form-group">
+                        <!--alerta-->
+                        <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
+                    </div>
+                    <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
+                        <div class="form-group center text-center">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <a class="btn btn-secondary" href="clientes.php" role="button">Cancelar</a>
+                            <button type="submit" class="btn btn-light">Limpar</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="escolaridade">Escolaridade:
-                                <input type="text" name="escolaridade" id="escolaridade" placeholder="Digite o Nome"
-                                    class="form-control">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="informacao">Observações importante:
-                                <input type="text" name="informacao" id="informacao"
-                                    placeholder="Digite informações Ex: 2º telefone, Proximidade, Referências Comerciais."
-                                    class="form-control">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <!--alerta-->
-                    <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
+
+                </form>
+
         </div>
-        <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
-            <div class="form-group center text-center">
-                <button type="submit"class="btn btn-primary">Enviar</button>
-                <a class="btn btn-secondary" href="clientes.php" role="button">Cancelar</a>
-                <button type="submit" class="btn btn-light">Limpar</button>
-            </div>
-        </div>
-    
-    </form>
-
-    </div>
     </div>
     <!--menu-->
     </main>

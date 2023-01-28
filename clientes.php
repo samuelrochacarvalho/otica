@@ -253,7 +253,7 @@
                                                         <?php
                                                     }
                                                 } else {
-                                                    echo "<h5> Nenhum aluno cadastrado </h5>";
+                                                    echo "<h5> Nenhum cliente cadastrado </h5>";
                                                 }
                                                 ?>
 
