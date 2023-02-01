@@ -229,7 +229,31 @@
                     }
                     mysqli_close($conn);
                 } else if (isset($_GET["tabela"]) and $_GET["tabela"] == "produto") {
-                    echo "iniciar conexão com banco e insert produto";
+                    $tabela=$_GET["tabela"];
+                    $nome=$_GET["nomeP"];
+                    $referencia=$_GET["referencia"];
+                    $codigo=$_GET["codigo"];
+                    $unidade=$_GET["unidade"];
+                    $fornecedor=$_GET["fornecedor"];
+                    $custo=$_GET["custo"];
+                    $pLucro=$_GET["Plucro"];
+                    $lucro=$_GET["lucro"];
+                    $venda=$_GET["venda"];
+                    $qAtual=$_GET["qatual"];
+                    $hoje = date('d/m/Y');
+                    $sql = " INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,quantidade,dataLancamento)
+                     VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda',$qAtual,'$hoje');";
+
+                    include "conexao.php";
+                    if (mysqli_query($conn, $sql)) {
+                        echo "<div class='alert alert-success' role='alert'>Produto Cadastrado com Sucesso!</div>";
+                    } else {
+                        echo "<div class='alert alert-danger' role='alert'>Erro ao Cadastrar Produto!</div>";
+                    }
+                    mysqli_close($conn);
+                    
+                    
+                    echo "$sql";
                 } else if (isset($_GET["tabela"]) and $_GET["tabela"] == "fornecedor") {
                     echo "iniciar conexão com banco e insert fornecedor";
                 } else {

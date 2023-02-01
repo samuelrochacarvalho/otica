@@ -148,7 +148,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 select * from clientes;
 select * from compra;
 
-select * from clientes where qd ="3";
+select * from clientes ;
 SELECT nome,nascimento FROM clientes WHERE nascimento = "10/11/1997";
 show tables;
 USE `mydb` ;
@@ -159,3 +159,13 @@ CREATE TABLE students (
     phone VARCHAR(191) NOT NULL,
     course VARCHAR(191) NOT NULL
 );
+
+select * from produtos where id_Produtos='6';
+INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda)
+ VALUES ('armação','1237d4848','0','1','dilucas','80,00','100,00');
+ 
+ INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,dataLancamento) VALUES ('armação','1237d4848','0','1','dilucas','80,00','100,00','01/02/2023');
+ 
+ DELETE FROM clientes WHERE (id_Clientes = '4');
+ 
+ select * from clientes where id_Clientes='1';

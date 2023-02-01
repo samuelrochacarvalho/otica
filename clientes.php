@@ -4,14 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.108.0">
-    <title>Dashboard Template · Bootstrap v5.3</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
-    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="js/maskCPF.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/bootstrap.css" rel="stylesheet">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -64,14 +60,9 @@
             -webkit-overflow-scrolling: touch;
         }
     </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
-
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Otica Rio Trombas</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
@@ -176,14 +167,8 @@
                     <h1 class="h2">Pesquisar Clientes</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Cadastrar Novo
-                                Cliente</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                         </div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar" class="align-text-bottom"></span>
-                            This week
-                        </button>
                     </div>
                 </div>
                 <!--Pagina inicio-->
@@ -191,7 +176,6 @@
                 <body>
 
                     <div class="container mt-4">
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
@@ -237,41 +221,80 @@
                                                             </td>
                                                             <td>
                                                                 <?= $student['cidade']; ?>
-                                                            </td>
                                                             <td>
-                                                                <a href="student-view.php?id=<?= $student['id_Clientes']; ?>"
+                                                                <a href="?visualizar=true&id=<?= $student['id_Clientes']; ?>"
                                                                     class="btn btn-info btn-sm">Visualizar</a>
-                                                                <a href="student-edit.php?id=<?= $student['id_Clientes']; ?>"
+                                                                <a href="Cadclientes.php?acao=editar&id=<?= $student['id_Clientes']; ?>"
                                                                     class="btn btn-success btn-sm">Editar</a>
-                                                                <form action="code.php" method="POST" class="d-inline">
-                                                                    <button type="submit" name="delete_student"
-                                                                        value="<?= $student['id_Clientes']; ?>"
-                                                                        class="btn btn-danger btn-sm">Deletar</button>
-                                                                </form>
+                                                                <a href="?excluir=true&id=<?= $student['id_Clientes']; ?>"
+                                                                    class="btn btn-danger btn-sm">Deletar</a>
                                                             </td>
                                                         </tr>
                                                         <?php
                                                     }
                                                 } else {
-                                                    echo "<h5> Nenhum cliente cadastrado </h5>";
+                                                    echo "<h5> Nenhum Cliente Cadastrado </h5>";
                                                 }
                                                 ?>
-
                                             </tbody>
                                         </table>
+                                        <?php
+                                        if (isset($_GET["excluir"]) && isset($_GET['id'])) {
+                                            include "conexao.php";
+                                            $id = $_GET['id'];
+                                            $sql = "DELETE FROM clientes WHERE (id_Clientes = '$id');";
 
+                                            if (mysqli_query($conn, $sql)) {
+                                                echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=clientes.php?DELETADO'>";
+                                            } else {
+                                                echo "<div class='alert alert-danger' role='alert'>Erro ao Deletar Cliente!</div>";
+                                            }
+                                            mysqli_close($conn);
+                                        }
+                                        if (isset($_GET['DELETADO'])) {
+                                            echo "<div class='alert alert-success' role='alert'>Cliente Deletado com Sucesso!</div>";
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                     <!--menu-->
-            </main>
-            <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+            </main><!--main-->
+        </div><!--row-->
+    </div><!--container fluid-->
+    </main>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Cliente</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    include "ClienteModal.php";
+                    ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary disabled">OK</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <?php
+    if (isset($_GET['visualizar']) && isset($_GET['id'])) {
+        echo "<script>var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+        document.onreadystatechange = function () {
+            myModal.show();
+        };</script>";
+
+    }
+    ?>
     <!-- icones-->
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

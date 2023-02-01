@@ -1,38 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+<html>
+<?php
+include "conexao.php";
+echo "<br>";
+$id = $_GET['id'];
 
-<div class="container">
-  <h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
-  <a data-toggle="modal" class="btn" href="http://www.bing.com" data-target="#myModal">click me</a>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
+$sql = "select * from clientes where id_Clientes='$id';";
+$query_run = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($query_run) > 0) {
+    foreach ($query_run as $cliente) {
+        echo "<h6>Dados Pessoais:</h6>";#dados pessoais
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Nome:</span>
+        <input type='text' class='form-control' value='" . $cliente['nome'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Apelido:</span>
+        <input type='text' class='form-control' value='" . $cliente['apelido'] . "'disabled/>
+        </div>";
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>RG:</span>
+        <input type='text' class='form-control' value='" . $cliente['rg'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Orgão Emissor:</span>
+        <select class='form-select' disabled>
+        <option selected>".$cliente['emissor']."</option></select>
+        </div>";
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>CPF:</span>
+        <input type='text' class='form-control' value='" . $cliente['cpf'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Sexo:</span>
+        <input type='text' class='form-control' value='" . $cliente['sexo'] . "'disabled/></div>";
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Escolaridade:</span>
+        <input type='text' class='form-control' value='" . $cliente['escolaridade'] . "'disabled/></div>";
+        echo "<h6>Endereço:</h6>";#endereço
+        
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Rua:</span>
+        <input type='text' class='form-control' value='" . $cliente['rua'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Bairro:</span>
+        <input type='text' class='form-control' value='" . $cliente['bairro'] . "'disabled/></div>";
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Quadra:</span>
+        <input type='text' class='form-control' value='" . $cliente['qd'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Lote:</span>
+        <input type='text' class='form-control' value='" . $cliente['lt'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Numero:</span>
+        <input type='text' class='form-control' value='" . $cliente['n'] . "'disabled/>
+        </div>";
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Complemento:</span>
+        <input type='text' class='form-control' value='" . $cliente['complemento'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Cidade:</span>
+        <input type='text' class='form-control' value='" . $cliente['cidade'] . "'disabled/>
+        </div>";
+        
+        echo "<h6>Contato:</h6>";#contato
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Telefone:</span>
+        <input type='text' class='form-control' value='" . $cliente['telefone'] . "'disabled/>
+        <span class='input-group-text' id='basic-addon1'>Identificação:</span>
+        <input type='text' class='form-control' value='" . $cliente['identificacao'] . "'disabled/></div>";
+        echo "<div class='input-group mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Email:</span>
+        <input type='text' class='form-control' value='" . $cliente['email'] . "'disabled/></div>";
+        echo "<h6>Outros:</h6>";#outros
+
+        echo "<div class='form-floating'><textarea class='form-control' disabled>".$cliente['observacao']."</textarea></div>";
+    }
+} else {
+    echo "<div class='alert alert-danger' role='alert'>
+    ERRO. Cliente não Encontrado, Procure o Desenvolvedor ou tente novamente!
+  </div>";
+}
+mysqli_close($conn);
+?>
+
+
+<!--duplo
+<div class='input-group mb-3'>
+    <span class='input-group-text' id='basic-addon1'>Nome:</span>
+    <input type='text' class='form-control' value='""' disabled />
+    <span class='input-group-text' id='basic-addon1'>Nome:</span>
+    <input type='text' class='form-control' value='""' disabled />
+</div>" ;
+
+-->
