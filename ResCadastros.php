@@ -207,7 +207,7 @@
                     $complemento = $_GET["comp"];
                     $cidade = $_GET["cidade"];
                     $telefone = $_GET["tel"];
-                    $identificacao = $_GET["ide"];
+                    $identificacao = $_GET["identificacao"];
                     $email = $_GET["email"];
                     $pai = $_GET["pai"];
                     $mae = $_GET["mae"];
@@ -230,7 +230,7 @@
                     mysqli_close($conn);
                 } else if (isset($_GET["tabela"]) and $_GET["tabela"] == "produto") {
                     $tabela=$_GET["tabela"];
-                    $nome=$_GET["nomeP"];
+                    $nome=$_GET["nome"];
                     $referencia=$_GET["referencia"];
                     $codigo=$_GET["codigo"];
                     $unidade=$_GET["unidade"];
@@ -239,10 +239,10 @@
                     $pLucro=$_GET["Plucro"];
                     $lucro=$_GET["lucro"];
                     $venda=$_GET["venda"];
-                    $qAtual=$_GET["qatual"];
+                    $qAtual=$_GET["quantidade"];
                     $hoje = date('d/m/Y');
                     $sql = " INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,quantidade,dataLancamento)
-                     VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda',$qAtual,'$hoje');";
+                     VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda','$qAtual','$hoje');";
 
                     include "conexao.php";
                     if (mysqli_query($conn, $sql)) {

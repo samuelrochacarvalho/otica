@@ -1,8 +1,23 @@
+<?php
+
+if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id']))) {
+    include "conexao.php";
+    $acao = $_GET['acao'];
+    $id = $_GET['id'];
+
+    $sql = "select * from clientes where id_Clientes = '$id';";
+    $resultado = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($resultado);
+
+    print_r($row);
+}
+
+?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Dashboard Template · Bootstrap v5.3</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
     <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -198,32 +213,43 @@
                                 <!--colunas-->
                                 <div class="input-group mb-3">
                                     <label class="input-group-text" for="nome">Nome:</label>
-                                    <input type="text" id="nome" name="nome" class="form-control"
-                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                    <input type="text" id="nome" name="nome" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['nome'];
+                                    } ?>" required>
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <label class="input-group-text" for="apelido">Apelido:</label>
-                                    <input type="text" id="apelido" name="apelido" class="form-control"
-                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <input type="text" id="apelido" name="apelido" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['apelido'];
+                                    } ?>">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <!--colunas-->
                                 <div class="input-group mb-3">
                                     <label class="input-group-text" for="rg">RG:</label>
-                                    <input type="text" id="rg" name="rg" class="form-control"
-                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                    <input type="text" id="rg" name="rg" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['rg'];
+                                    } ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="orgao">Orgão Emissor:</label>
                                     <select id="orgao" name="orgao" class="form-select"
                                         aria-label="Default select example" required>
-                                        <option value="" selected>Selecione</option>
-                                        <option value="1">DGPC</option>
-                                        <option value="2">PC</option>
-                                        <option value="3">SSP</option>
-                                        <option value="4">Outros</option>
+                                        <option value="">Selecione</option>
+                                        <option value="1" <?php if ((isset($_GET['id'])) && $row['emissor'] == "1") {
+                                            echo "selected";
+                                        } ?>>DGPC</option>
+                                        <option value="2" <?php if ((isset($_GET['id'])) && $row['emissor'] == "2") {
+                                            echo "selected";
+                                        } ?>>PC</option>
+                                        <option value="3" <?php if ((isset($_GET['id'])) && $row['emissor'] == "3") {
+                                            echo "selected";
+                                        } ?>>SSP</option>
+                                        <option value="4" <?php if ((isset($_GET['id'])) && $row['emissor'] == "4") {
+                                            echo "selected";
+                                        } ?>>Outros</option>
                                     </select>
                                 </div>
 
@@ -232,12 +258,16 @@
                                 <!--colunas-->
                                 <div class="input-group mb-3">
                                     <label class="input-group-text" for="cpf">CPF</label>
-                                    <input type="text" class="form-control"  id="cpf" name="cpf" oninput="mascara(this)" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default" required>
+                                    <input type="text" class="form-control" id="cpf" name="cpf" oninput="mascara(this)"
+                                        value="<?php if (isset($_GET['id'])) {
+                                            echo $row['cpf'];
+                                        } ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nascimento">Data de Nascimento:<input type="date" name="nascimento"
-                                            id="nascimento" placeholder="" class="form-control" required>
+                                            id="nascimento" placeholder="" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                                echo $row['Nascimento'];
+                                            } ?>" required>
 
                                     </label>
                                 </div>
@@ -253,13 +283,18 @@
                                 <!--colunas-->
                                 <div class="form-group">
                                     <label for="rua">Rua:
-                                        <input type="text" name="rua" id="rua" placeholder="" class="form-control" required>
+                                        <input type="text" name="rua" id="rua" placeholder="" class="form-control"
+                                            value="<?php if (isset($_GET['id'])) {
+                                                echo $row['rua'];
+                                            } ?>" required>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label for="bairro">Bairro:
-                                        <input type="text" name="bairro" id="bairro" placeholder=""
-                                            class="form-control" required>
+                                        <input type="text" name="bairro" id="bairro" placeholder="" class="form-control"
+                                            value="<?php if (isset($_GET['id'])) {
+                                                echo $row['bairro'];
+                                            } ?>" required>
                                     </label>
                                 </div>
                             </div>
@@ -267,13 +302,17 @@
                                 <!--colunas-->
                                 <div class="form-group">
                                     <label for="qd">QD:
-                                        <input type="text" name="qd" id="qd" placeholder="" class="form-control" >
+                                        <input type="text" name="qd" id="qd" placeholder="" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                            echo $row['qd'];
+                                        } ?>">
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label for="comp">Complemento:
-                                        <input type="text" name="comp" id="comp" placeholder=""
-                                            class="form-control">
+                                        <input type="text" name="comp" id="comp" placeholder="" class="form-control"
+                                            value="<?php if (isset($_GET['id'])) {
+                                                echo $row['complemento'];
+                                            } ?>">
                                     </label>
                                 </div>
                             </div>
@@ -281,13 +320,17 @@
                                 <!--colunas-->
                                 <div class="form-group">
                                     <label for="lt">LT:
-                                        <input type="text" name="lt" id="lt" placeholder="" class="form-control" >
+                                        <input type="text" name="lt" id="lt" placeholder="" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                            echo $row['lt'];
+                                        } ?>">
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label for="cidade">Cidade:
-                                        <input type="text" name="cidade" id="cidade" placeholder=""
-                                            class="form-control" required>
+                                        <input type="text" name="cidade" id="cidade" placeholder="" class="form-control"
+                                            value="<?php if (isset($_GET['id'])) {
+                                                echo $row['cidade'];
+                                            } ?>" required>
                                     </label>
                                 </div>
                             </div>
@@ -295,8 +338,9 @@
                                 <!--colunas-->
                                 <div class="form-group">
                                     <label for="n">N°:
-                                        <input type="text" name="n" id="n" placeholder=""
-                                            class="form-control" required>
+                                        <input type="text" name="n" id="n" placeholder="" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                            echo $row['n'];
+                                        } ?>" required>
                                     </label>
                                 </div>
 
@@ -311,21 +355,42 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="tel">Telefone:
-                                            <input type="text" name="tel" id="tel" placeholder=""
-                                                class="form-control" required>
+                                            <input type="text" name="tel" id="tel" placeholder="" class="form-control"
+                                                value="<?php if (isset($_GET['id'])) {
+                                                    echo $row['telefone'];
+                                                } ?>" required>
                                         </label>
                                     </div>
                                     <div class="col-6">
                                         <label for="ide">Identificação:
-                                            <input type="text" name="ide" id="ide" placeholder=""
-                                                class="form-control">
+                                            <select id="identificacao" name="identificacao"class="form-select">
+                                                <option value="">Selecione</option>
+                                                <option value="1" <?php
+                                                if ((isset($_GET['id'])) && $row['identificacao'] == "1") {
+                                                    echo "selected";
+                                                } ?>>Particular</option>
+                                                <option value="2" <?php
+                                                if ((isset($_GET['id'])) && $row['identificacao'] == "2") {
+                                                    echo "selected";
+                                                } ?>>Esposo</option>
+                                                <option value="3" <?php
+                                                if ((isset($_GET['id'])) && $row['identificacao'] == "3") {
+                                                    echo "selected";
+                                                } ?>>Filho</option>
+                                                <option value="4" <?php
+                                                if ((isset($_GET['id'])) && $row['identificacao'] == "4") {
+                                                    echo "selected";
+                                                } ?>>Outro</option>
+                                            </select>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="col-6">
                                 <label for="email">Email:
-                                    <input type="text" name="email" id="email" placeholder="" class="form-control">
+                                    <input type="text" name="email" id="email" placeholder="" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['email'];
+                                    } ?>" class="form-control">
                                 </label>
                             </div>
                         </div>
@@ -337,61 +402,107 @@
                         <div class="row">
                             <div class="col-6">
                                 <label for="pai">Nome do Pai:
-                                    <input type="text" name="pai" id="pai" placeholder="" class="form-control">
+                                    <input type="text" name="pai" id="pai" placeholder="" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['pai'];
+                                    } ?>" class="form-control">
                                 </label>
                             </div>
                             <div class="col-6">
                                 <label for="mae">Nome da Mãe:
-                                    <input type="text" name="mae" id="mae" placeholder="" class="form-control" >
+                                    <input type="text" name="mae" id="mae" placeholder="" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['mae'];
+                                    } ?>" class="form-control">
                                 </label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <label for="responsavel">Nome do Responsavel:
-                                    <input type="text" name="resp" id="resp" placeholder=""
-                                        class="form-control">
+                                    <input type="text" name="resp" id="resp" placeholder="" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['responsavel'];
+                                    } ?>">
                                 </label>
                             </div>
                             <div class="col-6">
                                 <label for="sexo">Sexo:
-                                    <input type="text" name="sexo" id="sexo" placeholder="" class="form-control" required>
+                                    <select class="form-select" id="sexo" name="sexo">
+                                        <option value="">Selecione</option>
+                                        <option value="1" <?php if ((isset($_GET['id'])) && $row['sexo'] == "1") {
+                                            echo "selected";
+                                        } ?>>Masculino</option>
+                                        <option value="2" <?php if ((isset($_GET['id'])) && $row['sexo'] == "2") {
+                                            echo "selected";
+                                        } ?>>Feminino</option>
+                                    </select>
                                 </label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <label for="escolaridade">Escolaridade:
-                                    <input type="text" name="escolaridade" id="escolaridade" placeholder=""
-                                        class="form-control" required>
+                                    <select class="form-select" id="escolaridade" name="escolaridade">
+                                        <option value="">Selecione</option>
+                                        <option value="1" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "1") {
+                                            echo "selected";
+                                        } ?>>Não Lê e Escreve</option>
+                                        <option value="2" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "2") {
+                                            echo "selected";
+                                        } ?>>Ensino Fundamental Incompleto</option>
+                                        <option value="3" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "3") {
+                                            echo "selected";
+                                        } ?>>Ensino Fundamental completo</option>
+                                        <option value="4" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "4") {
+                                            echo "selected";
+                                        } ?>>Ensino Medio completo</option>
+                                        <option value="5" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "5") {
+                                            echo "selected";
+                                        } ?>>Ensino Medio incompleto</option>
+                                        <option value="6" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "6") {
+                                            echo "selected";
+                                        } ?>>Ensino Superior Incompleto</option>
+                                        <option value="7" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "7") {
+                                            echo "selected";
+                                        } ?>>Ensino Superior completo</option>
+                                        <option value="8" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "8") {
+                                            echo "selected";
+                                        } ?>>Pos Graduação</option>
+                                        <option value="9" <?php if ((isset($_GET['id'])) && $row['escolaridade'] == "9") {
+                                            echo "selected";
+                                        } ?>>Mestrado</option>
+                                        <option value="10" <?php
+                                        if ((isset($_GET['id'])) && $row['escolaridade'] == "10") {
+                                            echo "selected";
+                                        } ?>>
+                                            Doutorado</option>
+                                    </select>
                                 </label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <label for="informacao">Observações importante:
-                                    <input type="text" name="informacao" id="informacao"
-                                        placeholder="Digite informações Ex: 2º telefone, Proximidade, Referências Comerciais."
-                                        class="form-control">
-                                </label>
-                            </div>
+                            <div class='form-floating'></div>
+                            <label for="informacao">Observações importante:
+                                <textarea class='form-control' name="informacao" id="informacao"
+                                    placeholder="Digite informações Ex: 2º telefone, Proximidade, Referências Comerciais."
+                                    class="form-control"><?php if(isset($_GET['id'])) {echo $row['observacao'];} ?></textarea>
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <!--alerta-->
-                        <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
-                        <div class="form-group center text-center">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                            <a class="btn btn-secondary" href="clientes.php" role="button">Cancelar</a>
-                            <button type="submit" class="btn btn-light">Limpar</button>
-                        </div>
-                    </div>
-
-                </form>
-
         </div>
+        <div class="form-group">
+            <!--alerta-->
+            <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
+        </div>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
+            <div class="form-group center text-center">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <a class="btn btn-secondary" href="clientes.php" role="button">Cancelar</a>
+                <button type="submit" class="btn btn-light">Limpar</button>
+            </div>
+        </div>
+
+        </form>
+
+    </div>
     </div>
     <!--menu-->
     </main>
