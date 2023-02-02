@@ -1,15 +1,13 @@
 <?php
 
 if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id']))) {
-  include "conexao.php";
-  $acao = $_GET['acao'];
-  $id = $_GET['id'];
+    include "conexao.php";
+    $acao = $_GET['acao'];
+    $id = $_GET['id'];
 
-  $sql = "select * from produtos where id_Produtos = '$id';";
-  $resultado = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($resultado);
-
-  print_r($row);
+    $sql = "select * from produtos where id_Produtos = '$id';";
+    $resultado = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($resultado);
 }
 
 ?>
@@ -28,57 +26,67 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
     <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="js/maskCPF.js"></script>
+    <script>
+        var loadFile = function (event) {
+            var output = document.getElementById('imgArmacao');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+            
+        };
+    </script>
     <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
-    }
 
-    .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
 
-    .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-    }
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
 
-    .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-    }
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
 
-    .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-    }
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
 
-    .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
     </style>
 
 
@@ -211,10 +219,11 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                 <!--colunas1-->
                                 <div class="input-group">
                                     <div class="card" style="width: 14rem;">
-                                        <img src="/fotos/padrao.png" class="card-img-top">
+                                        <img id="imgArmacao" name="imgArmacao" src="/fotos/padrao.png"
+                                            class="card-img-top">
                                         <div class="card-body">
                                             <div class="input-group mb-3">
-                                                <input type="file" >
+                                                <input id="arquivo" name="arquivo" type="file" accept="image/*" onchange="loadFile(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -224,21 +233,22 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                 <!--colunas2-->
                                 <div class="input-group">
                                     <span class="input-group-text" for="nome" id="nome">Nome do Produto:</span>
-                                    <input type="text" id="nome" name="nome"class="form-control" value="<?php if (isset($_GET['id'])) {
-                      echo $row['nome'];
-                    } ?>">
+                                    <input type="text" id="nome" name="nome" class="form-control" value="<?php if (isset($_GET['id'])) {
+                                        echo $row['nome'];
+                                    } ?>">
                                 </div><br>
                                 <div class="input-group">
                                     <span class="input-group-text" for="referencia" id="referencia">Referencia:</span>
-                                    <input type="text" id="referencia" name="referencia" id="referencia" class="form-control" value="<?php if (isset($_GET['id'])) {
-                      echo $row['referencia'];
-                    } ?>">
+                                    <input type="text" id="referencia" name="referencia" id="referencia"
+                                        class="form-control" value="<?php if (isset($_GET['id'])) {
+                                            echo $row['referencia'];
+                                        } ?>">
                                 </div><br>
                                 <div class="input-group">
                                     <span class="input-group-text" for="codigo" id="codigo">Codigo (GTIN EAN-13):</span>
                                     <input type="text" id="codigo" name="codigo" class="form-control" value="<?php if (isset($_GET['id'])) {
-                      echo $row['codigo'];
-                    } ?>">
+                                        echo $row['codigo'];
+                                    } ?>">
                                 </div>
                             </div>
                             <div class="col-4">
@@ -248,60 +258,60 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                     <select class="form-select" name="unidade" id="unidade">
                                         <option value="">Selecione</option>
                                         <option value="1" <?php if (isset($_GET['id']) && ($row['unidade'] == "1")) {
-                      echo "selected";
-                    } ?>>Par
+                                            echo "selected";
+                                        } ?>>Par
                                         </option>
                                         <option value="2" <?php if (isset($_GET['id']) && ($row['unidade'] == "2")) {
-                      echo "selected";
-                    } ?>>Unico
+                                            echo "selected";
+                                        } ?>>Unico
                                         </option>
                                         <option value="3" <?php if (isset($_GET['id']) && ($row['unidade'] == "3")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             ml(Mililitro)</option>
                                     </select>
                                 </div><br>
                                 <div class="input-group">
                                     <span class="input-group-text" for="quantidade" id="quantidade">Quantidade:</span>
                                     <input type="text" id="quantidade" name="quantidade" class="form-control" value="<?php if (isset($_GET['id'])) {
-                      echo $row['quantidade'];
-                    } ?>">
+                                        echo $row['quantidade'];
+                                    } ?>">
                                 </div><br>
                                 <div class="input-group">
                                     <span class="input-group-text" for="fornecedor" id="fornecedor">FORNECEDOR:</span>
                                     <select class="form-select" name="fornecedor" id="fornecedor">
                                         <option value="">Selecione</option>
                                         <option value="1" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "1")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             Dilucas</option>
                                         <option value="2" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "2")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             Rayban</option>
                                         <option value="3" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "3")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             Fiamma</option>
                                         <option value="4" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "4")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             Lavorato</option>
                                         <option value="5" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "5")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             Cadri</option>
                                         <option value="6" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "6")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             Fahi</option>
                                         <option value="7" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "7")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             DG</option>
                                         <option value="8" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "8")) {
-                      echo "selected";
-                    } ?>>
+                                            echo "selected";
+                                        } ?>>
                                             GRAZI</option>
                                     </select>
                                 </div>
@@ -324,15 +334,15 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                             <tbody>
                                 <tr>
                                     <td><input type="text" id="custo" name="custo" class="form-control" value="<?php if (isset($_GET['id'])) {
-                    echo $row['custo'] . ",00 R$";
-                  } ?>" placeholder="0,00"></td>
+                                        echo $row['custo'] . ",00 R$";
+                                    } ?>" placeholder="0,00"></td>
                                     <td><input type="text" id="Plucro" name="Plucro" class="form-control"
                                             placeholder="0 %"></td>
                                     <td><input type="text" id="lucro" name="lucro" class="form-control"
                                             placeholder="0,00 R$"></td>
                                     <td><input type="text" id="venda" name="venda" class="form-control" value="<?php if (isset($_GET['id'])) {
-                    echo $row['venda'] . ",00 R$";
-                  } ?>" placeholder="0,00 R$"></td>
+                                        echo $row['venda'] . ",00 R$";
+                                    } ?>" placeholder="0,00 R$"></td>
                                     <td><input type="text" id="qatual" name="qatual" class="form-control"
                                             placeholder="0"></td>
                                 </tr>
@@ -378,13 +388,13 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
     <!-- icones-->
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="dashboard.js"></script>
 </body>
 
