@@ -487,21 +487,19 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                             </label>
                         </div>
                     </div>
-        </div>
-        <div class="form-group">
-            <!--alerta-->
-            <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
-        </div>
-        <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
+                    <div class="shadow p-3 mb-5 bg-body-tertiary rounded Container">
             <div class="form-group center text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 <a class="btn btn-secondary" href="clientes.php" role="button">Cancelar</a>
                 <button type="submit" class="btn btn-light">Limpar</button>
             </div>
         </div>
-
+        </div>
+        <div class="form-group">
+            <!--alerta-->
+            <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
+        </div>
         </form>
-
     </div>
     </div>
     <!--menu-->

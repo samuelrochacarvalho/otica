@@ -33,7 +33,7 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
             output.onload = function () {
                 URL.revokeObjectURL(output.src) // free memory
             }
-            
+
         };
     </script>
     <style>
@@ -223,7 +223,8 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                             class="card-img-top">
                                         <div class="card-body">
                                             <div class="input-group mb-3">
-                                            <input type="file" name="fileName" accept="image/*" onchange="loadFile(event)">
+                                                <input type="file" name="fileName" accept="image/*"
+                                                    onchange="loadFile(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -349,20 +350,18 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                             </tbody>
                         </table>
                     </div>
+                        <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">
+                            <div class="form-group center text-center">
+                                <button type="submit" name="moveFile" class="btn btn-primary">Enviar</button>
+                                <a class="btn btn-secondary" href="produtos.php" role="button">Cancelar</a>
+                                <button type="submit" class="btn btn-light">Limpar</button>
+                            </div>
+                        </div>
         </div>
-
         <div class="form-group">
             <div class="alert alert-danger d-none" role="alert">ERRO: Preencha todos os campos</div>
         </div>
-
-        <div class="form-group center text-center">
-            <button type="submit" name="moveFile" class="btn btn-primary">Enviar</button>
-            <a class="btn btn-secondary" href="produtos.php" role="button">Cancelar</a>
-            <button type="submit" class="btn btn-light">Limpar</button>
-        </div>
         </form>
-
-
         <!--fechamento de linha-->
     </div>
 
@@ -396,4 +395,5 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
         </script>
     <script src="dashboard.js"></script>
 </body>
+
 </html>
