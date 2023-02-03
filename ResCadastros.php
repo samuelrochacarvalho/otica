@@ -228,32 +228,55 @@
                         echo "<div class='alert alert-danger' role='alert'>Erro ao Cadastrar Cliente!</div>";
                     }
                     mysqli_close($conn);
-                } else if (isset($_GET["tabela"]) and $_GET["tabela"] == "produto") {
-                    $tabela=$_GET["tabela"];
-                    $nome=$_GET["nome"];
-                    $referencia=$_GET["referencia"];
-                    $codigo=$_GET["codigo"];
-                    $unidade=$_GET["unidade"];
-                    $fornecedor=$_GET["fornecedor"];
-                    $custo=$_GET["custo"];
-                    $pLucro=$_GET["Plucro"];
-                    $lucro=$_GET["lucro"];
-                    $venda=$_GET["venda"];
-                    $qAtual=$_GET["quantidade"];
+                } else if (isset($_POST["tabela"]) and $_POST["tabela"] == "produto") {
+                    $moveu = 0;
+                    #movendo arquivo pro servidor na pasta foto
+                    if (isset($_POST['moveFile'])) {
+                        $fileName = $_FILES['fileName']['name'];
+                        $tempName = $_FILES['fileName']['tmp_name'];
+
+                        if (isset($fileName)) {
+                            if (!empty($fileName)) {
+                                $location = "fotos/";
+                                if (move_uploaded_file($tempName, $location . $fileName)) {
+                                    echo 'File Uploaded';
+                                    $moveu = 1;
+                                }
+                            }
+                        }
+                    } else {
+                        echo "não encontrado o arquivo";
+                    }
+                    #pegando os outros campos
+                    $tabela = $_POST["tabela"];
+                    $nome = $_POST["nome"];
+                    $referencia = $_POST["referencia"];
+                    $codigo = $_POST["codigo"];
+                    $unidade = $_POST["unidade"];
+                    $fornecedor = $_POST["fornecedor"];
+                    $custo = $_POST["custo"];
+                    $pLucro = $_POST["Plucro"];
+                    $lucro = $_POST["lucro"];
+                    $venda = $_POST["venda"];
+                    $qAtual = $_POST["quantidade"];
                     $hoje = date('d/m/Y');
                     $sql = " INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,quantidade,dataLancamento)
                      VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda','$qAtual','$hoje');";
 
                     include "conexao.php";
                     if (mysqli_query($conn, $sql)) {
-                        echo "<div class='alert alert-success' role='alert'>Produto Cadastrado com Sucesso!</div>";
+                        if($moveu==1){
+                        echo "<div class='alert alert-success' role='alert'>imagem do produto movida e Cadastrado com Sucesso!</div>";
+                        } else {
+                            echo "<div class='alert alert-info' role='alert'>Produto Cadastrado com Sucesso! ERRO AO MOVER IMAGEM</div>";
+                        }
                     } else {
                         echo "<div class='alert alert-danger' role='alert'>Erro ao Cadastrar Produto!</div>";
                     }
                     mysqli_close($conn);
-                    
-                    
+
                     echo "$sql";
+
                 } else if (isset($_GET["tabela"]) and $_GET["tabela"] == "fornecedor") {
                     echo "iniciar conexão com banco e insert fornecedor";
                 } else {

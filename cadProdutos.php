@@ -209,7 +209,7 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                     </div>
                 </div>
                 <!--Pagina inicio-->
-                <form action="ResCadastros.php" method="get">
+                <form action="ResCadastros.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="tabela" id="tabela" value="produto" class="form-control">
                     <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
                         <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Novo Produto</div>
@@ -223,7 +223,7 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                             class="card-img-top">
                                         <div class="card-body">
                                             <div class="input-group mb-3">
-                                                <input id="arquivo" name="arquivo" type="file" accept="image/*" onchange="loadFile(event)">
+                                            <input type="file" name="fileName" accept="image/*" onchange="loadFile(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -356,10 +356,9 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
         </div>
 
         <div class="form-group center text-center">
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" name="moveFile" class="btn btn-primary">Enviar</button>
             <a class="btn btn-secondary" href="produtos.php" role="button">Cancelar</a>
             <button type="submit" class="btn btn-light">Limpar</button>
-
         </div>
         </form>
 
@@ -397,5 +396,4 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
         </script>
     <script src="dashboard.js"></script>
 </body>
-
 </html>
