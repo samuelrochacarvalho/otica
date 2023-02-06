@@ -229,6 +229,7 @@
                     }
                     mysqli_close($conn);
                 } else if (isset($_POST["tabela"]) and $_POST["tabela"] == "produto") {
+                    $novaimagem = "";
                     $moveu = 0;
                     #movendo arquivo pro servidor na pasta foto
                     if (isset($_POST['moveFile'])) {
@@ -238,9 +239,10 @@
                         if (isset($fileName)) {
                             if (!empty($fileName)) {
                                 $location = "fotos/";
-                                if (move_uploaded_file($tempName, $location . $fileName)) {
-                                    echo 'File Uploaded';
+                                $novaimagem = time(). $fileName;
+                                if (move_uploaded_file($tempName, $location .  $novaimagem)) {
                                     $moveu = 1;
+                                    
                                 }
                             }
                         }
@@ -255,13 +257,17 @@
                     $unidade = $_POST["unidade"];
                     $fornecedor = $_POST["fornecedor"];
                     $custo = $_POST["custo"];
-                    $pLucro = $_POST["Plucro"];
-                    $lucro = $_POST["lucro"];
                     $venda = $_POST["venda"];
                     $qAtual = $_POST["quantidade"];
                     $hoje = date('d/m/Y');
-                    $sql = " INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,quantidade,dataLancamento)
-                     VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda','$qAtual','$hoje');";
+
+                    if(isset($_POST['caminho'])){
+                        
+                    } else {
+                    
+                    }
+                    $sql = " INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,quantidade,caminho,dataLancamento)
+                     VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda','$qAtual','$novaimagem','$hoje');";
 
                     include "conexao.php";
                     if (mysqli_query($conn, $sql)) {

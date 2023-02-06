@@ -10,10 +10,17 @@ $lucro = 0;
 $Plucro = 0;
 if (mysqli_num_rows($query_run) > 0) {
     foreach ($query_run as $produto) {
+        
+        if($produto['caminho']==""){
+            $caminho = "fotos/padrao.png";
+        }else{
+            $caminho = "fotos/".$produto['caminho'];
+        }
+        
         echo "<div class='container'>
                 <div class='row'>
                     <div class='col'>
-                        <img src='fotos/padrao.png' height='200' widht='200'>
+                        <img src='$caminho' height='200' widht='200'>
                     </div>
                     <div class='col'>
                         <div class='input-group'>

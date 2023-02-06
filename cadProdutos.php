@@ -219,12 +219,22 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                 <!--colunas1-->
                                 <div class="input-group">
                                     <div class="card" style="width: 14rem;">
-                                        <img id="imgArmacao" name="imgArmacao" src="/fotos/padrao.png"
+                                        <img id="imgArmacao" name="imgArmacao" src="<?php if (isset($_GET['id']) && $row['caminho'] == "") {
+                                            echo "/fotos/padrao.png";
+                                        } else {
+                                            echo "/fotos/" . $row['caminho'];
+                                        }?>"
                                             class="card-img-top">
                                         <div class="card-body">
                                             <div class="input-group mb-3">
-                                                <input type="file" name="fileName" accept="image/*"
-                                                    onchange="loadFile(event)">
+                                                <?php
+                                                $acao=$_GET['acao'];
+                                                if(isset($_GET['id'])&&isset($_GET['acao']) && $acao == "editar" && $row['caminho']==""){
+                                                    echo "<input type='file' name='fileName' id='fileName' accept='image/*' onchange='loadFile(event)'>";
+                                                }else{
+                                                    echo "<input type='text' id='fileName' name='fileName' class='form-control' value=$row[caminho] hidden/>";
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -255,7 +265,7 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                             <div class="col-4">
                                 <!--colunas3-->
                                 <div class="input-group">
-                                    <span class="input-group-text" for="unidade">Forma de Unidade:</span>
+                                    <span class="input-group-text" for="unidade">Unidade:</span>
                                     <select class="form-select" name="unidade" id="unidade">
                                         <option value="">Selecione</option>
                                         <option value="1" <?php if (isset($_GET['id']) && ($row['unidade'] == "1")) {
@@ -325,27 +335,27 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                         <table class="table table-success table-striped-columns">
                             <tbody>
                                 <tr>
-                                    <td for="custo">Custo</td>
+                                    <td for="custo">Custo R$</td>
                                     <td for="Plucro">% Lucro</td>
                                     <td for="lucro">Lucro</td>
-                                    <td for="venda">Venda</td>
+                                    <td for="venda">Venda R$</td>
                                     <td for="qatual">Qtd Atual</td>
                                 </tr>
                             </tbody>
                             <tbody>
                                 <tr>
                                     <td><input type="text" id="custo" name="custo" class="form-control" value="<?php if (isset($_GET['id'])) {
-                                        echo $row['custo'] . ",00 R$";
+                                        echo $row['custo'];
                                     } ?>" placeholder="0,00"></td>
                                     <td><input type="text" id="Plucro" name="Plucro" class="form-control"
-                                            placeholder="0 %"></td>
-                                    <td><input type="text" id="lucro" name="lucro" class="form-control"
+                                           disabled placeholder="0 %"></td>
+                                    <td><input type="text" id="lucro" name="lucro" class="form-control" disabled
                                             placeholder="0,00 R$"></td>
                                     <td><input type="text" id="venda" name="venda" class="form-control" value="<?php if (isset($_GET['id'])) {
-                                        echo $row['venda'] . ",00 R$";
+                                        echo $row['venda'];
                                     } ?>" placeholder="0,00 R$"></td>
                                     <td><input type="text" id="qatual" name="qatual" class="form-control"
-                                            placeholder="0"></td>
+                                            placeholder="0" disabled></td>
                                 </tr>
                             </tbody>
                         </table>
