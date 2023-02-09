@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/maskCPF.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="css/bootstrap.css" rel="stylesheet">
     <style>
@@ -164,10 +165,31 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Pesquisar Clientes</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <h1 class="h3">Clientes</h1>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg></span>
+                                    <input type="text" list="teste" class="form-control" id="pesquisa" name="pesquisa" />
+                                    <datalist id="teste">
+                                        <option value="Edge"></option>
+                                        <option value="Firefox"></option>
+                                        <option value="Chrome"></option>
+                                        <option value="Opera"></option>
+                                        <option value="Safari"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="col-md-auto">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -181,7 +203,8 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Detalhes dos Clientes
-                                            <a href="Cadclientes.php" class="btn btn-primary float-end">Novo Cliente</a>
+                                            <a href="Cadclientes.php" class="btn btn-primary float-end">Novo
+                                                Cliente</a>
                                         </h4>
                                     </div>
                                     <div class="card-body">
@@ -260,6 +283,11 @@
                             </div>
                         </div>
                     </div>
+
+
+
+
+
                     <!--menu-->
             </main><!--main-->
         </div><!--row-->
@@ -295,6 +323,7 @@
 
     }
     ?>
+
     <!-- icones-->
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
