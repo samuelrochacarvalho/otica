@@ -229,8 +229,8 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                         <div class="card-body">
                                             <div class="input-group mb-3">
                                                 <?php
-                                                if(isset($_GET['id'])&&isset($_GET['acao']) && $acao == "editar" && $row['caminho']==""){
-                                                    echo "<input type='text' id='fileName' name='fileName' class='form-control'/>";
+                                                if(isset($_GET['id'])&&isset($_GET['acao']) && $acao == "editar"){
+                                                    echo "<input type='hidden' id='fileName' name='fileName' class='form-control'/>";
                                                 }else{
                                                     echo "<input type='file' name='fileName' id='fileName' accept='image/*' onchange='loadFile(event)'>";
                                                 }
