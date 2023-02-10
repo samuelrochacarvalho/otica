@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="en">
+<?php
+include "conexao.php";
+?>
 
 <head>
     <meta charset="utf-8">
@@ -177,14 +180,22 @@
                                             <path
                                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                         </svg></span>
-                                    <input type="text" list="teste" class="form-control" id="pesquisa" name="pesquisa" />
-                                    <datalist id="teste">
-                                        <option value="Edge"></option>
-                                        <option value="Firefox"></option>
-                                        <option value="Chrome"></option>
-                                        <option value="Opera"></option>
-                                        <option value="Safari"></option>
+                                    <input type="text" list="cliente" class="form-control" id="pesquisa" name="pesquisa"
+                                        onchange="location = '?pesquisa=true&valor='+this.value;" />
+                                    <datalist id="cliente">
+                                        <?php
+                                        $sql = "select * from clientes";
+                                        $query_run = mysqli_query($conn, $sql);
+
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $cliente) {
+                                                echo "<option  value='" . $cliente['nome'] . "'>" . $cliente['cpf'] . " </option>";
+                                            }
+                                        }
+                                        ?>
                                     </datalist>
+                                    <button class="btn btn-outline-success" type="button"
+                                        id="button-addon2">Pesquisar</button>
                                 </div>
                             </div>
                             <div class="col-md-auto">
@@ -222,10 +233,16 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                include "conexao.php";
-                                                $query = "SELECT * FROM clientes";
-                                                $query_run = mysqli_query($conn, $query);
 
+                                                if (isset($_GET['pesquisa']) && isset($_GET['valor'])) {
+                                                    $valor = $_GET['valor'];
+                                                    $query = "select * from clientes where nome like '%$valor%' or cpf like '%$valor%'";
+
+                                                } else {
+                                                    $query = "SELECT * FROM clientes";
+
+                                                }
+                                                $query_run = mysqli_query($conn, $query);
                                                 if (mysqli_num_rows($query_run) > 0) {
                                                     foreach ($query_run as $student) {
                                                         ?>

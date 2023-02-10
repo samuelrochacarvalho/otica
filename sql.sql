@@ -147,3 +147,5 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 show tables;
 select * from produtos;
+USE `mydb` ;
+select * from clientes where nome like '%%' or cpf like '%%';
