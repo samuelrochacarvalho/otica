@@ -237,7 +237,7 @@
                                                 <?php
                                             if(isset($_GET['valor'])&&isset($_GET['pesquisa'])){
                                                 $valor=$_GET['valor'];
-                                                $query = "SELECT * FROM produtos where nome like '%$$valor%' or referencia like '%$$valor%' or fornecedores like '%$valor%' ";
+                                                $query = "SELECT * FROM produtos where nome like '%$valor%' or referencia like '%$valor%' or fornecedores like '%$valor%' ";
                                             }else{
                                                 $query = "SELECT * FROM produtos";
                                             }
