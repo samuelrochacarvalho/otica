@@ -171,7 +171,7 @@ include "conexao.php";
                     <div class="container">
                         <div class="row">
                             <div class="col-md-auto">
-                                <h1 class="h3">Clientes</h1>
+                                <h1 class="h3">Vendas</h1>
                             </div>
                             <div class="col">
                                 <div class="input-group">
@@ -180,20 +180,8 @@ include "conexao.php";
                                             <path
                                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                         </svg></span>
-                                    <input type="text" list="cliente" class="form-control" id="pesquisa" name="pesquisa"
+                                    <input type="text" class="form-control" id="pesquisa" name="pesquisa"
                                         onchange="location = '?pesquisa=true&valor='+this.value;" />
-                                    <datalist id="cliente">
-                                        <?php
-                                        $sql = "select * from clientes";
-                                        $query_run = mysqli_query($conn, $sql);
-
-                                        if (mysqli_num_rows($query_run) > 0) {
-                                            foreach ($query_run as $cliente) {
-                                                echo "<option  value='" . $cliente['nome'] . "'>" . $cliente['cpf'] . " </option>";
-                                            }
-                                        }
-                                        ?>
-                                    </datalist>
                                     <button class="btn btn-outline-success" type="button"
                                         id="button-addon2">Pesquisar</button>
                                 </div>
@@ -205,142 +193,15 @@ include "conexao.php";
                     </div>
                 </div>
                 <!--Pagina inicio-->
+                
 
                 <body>
-
-                    <div class="container mt-4">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Detalhes dos Clientes
-                                            <a href="Cadclientes.php" class="btn btn-primary float-end">Novo
-                                                Cliente</a>
-                                        </h4>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <table class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Nome</th>
-                                                    <th>CPF</th>
-                                                    <th>Telefone</th>
-                                                    <th>cidade</th>
-                                                    <th>Ação</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-
-                                                if (isset($_GET['pesquisa']) && isset($_GET['valor'])) {
-                                                    $valor = $_GET['valor'];
-                                                    $query = "select * from clientes where nome like '%$valor%' or cpf like '%$valor%'";
-
-                                                } else {
-                                                    $query = "SELECT * FROM clientes";
-
-                                                }
-                                                $query_run = mysqli_query($conn, $query);
-                                                if (mysqli_num_rows($query_run) > 0) {
-                                                    foreach ($query_run as $student) {
-                                                        ?>
-                                                        <tr>
-                                                            <td>
-                                                                <?= $student['id_Clientes']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $student['nome']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $student['cpf']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $student['telefone']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $student['cidade']; ?>
-                                                            <td>
-                                                                <a href="?visualizar=true&id=<?= $student['id_Clientes']; ?>"
-                                                                    class="btn btn-info btn-sm">Visualizar</a>
-                                                                <a href="Cadclientes.php?acao=editar&id=<?= $student['id_Clientes']; ?>"
-                                                                    class="btn btn-success btn-sm">Editar</a>
-                                                                <a href="?excluir=true&id=<?= $student['id_Clientes']; ?>"
-                                                                    class="btn btn-danger btn-sm">Deletar</a>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
-                                                    }
-                                                } else {
-                                                    echo "<h5> Nenhum Cliente Cadastrado </h5>";
-                                                }
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                        <?php
-                                        if (isset($_GET["excluir"]) && isset($_GET['id'])) {
-                                            include "conexao.php";
-                                            $id = $_GET['id'];
-                                            $sql = "DELETE FROM clientes WHERE (id_Clientes = '$id');";
-
-                                            if (mysqli_query($conn, $sql)) {
-                                                echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=clientes.php?DELETADO'>";
-                                            } else {
-                                                echo "<div class='alert alert-danger' role='alert'>Erro ao Deletar Cliente!</div>";
-                                            }
-                                            mysqli_close($conn);
-                                        }
-                                        if (isset($_GET['DELETADO'])) {
-                                            echo "<div class='alert alert-success' role='alert'>Cliente Deletado com Sucesso!</div>";
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
                     <!--menu-->
             </main><!--main-->
         </div><!--row-->
     </div><!--container fluid-->
     </main>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Cliente</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <?php
-                    include "ClienteModal.php";
-                    ?>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary disabled">OK</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <?php
-    if (isset($_GET['visualizar']) && isset($_GET['id'])) {
-        echo "<script>var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
-        document.onreadystatechange = function () {
-            myModal.show();
-        };</script>";
-
-    }
-    ?>
-
     <!-- icones-->
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

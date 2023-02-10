@@ -113,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="venda.php">
                                 <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                                 Venda
                             </a>
@@ -169,6 +169,9 @@
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                
             <div class="container">
                         <div class="row">
                             <div class="col-md-auto">
@@ -204,6 +207,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 <!--Pagina inicio-->
 
                 <body>
