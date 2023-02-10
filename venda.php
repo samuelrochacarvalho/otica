@@ -193,14 +193,48 @@ include "conexao.php";
                     </div>
                 </div>
                 <!--Pagina inicio-->
-                
 
                 <body>
-                    <!--menu-->
+                    <div class="container mt-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Lista de Vendas
+                                            <a href="cadProdutos.php" class="btn btn-primary float-end">Nova Venda</a>
+                                        </h4>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID Venda</th>
+                                                    <th>Cliente</th>
+                                                    <th>Produto</th>
+                                                    <th>OS</th>
+                                                    <th>Forma de Pagamento</th>
+                                                    <th>Data da Venda</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>s</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+                <!--menu-->
             </main><!--main-->
         </div><!--row-->
     </div><!--container fluid-->
-    </main>
+
     <!-- Modal -->
     <!-- icones-->
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
