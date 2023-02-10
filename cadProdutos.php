@@ -220,19 +220,19 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                 <div class="input-group">
                                     <div class="card" style="width: 14rem;">
                                         <img id="imgArmacao" name="imgArmacao" src="<?php if (isset($_GET['id']) && $row['caminho'] == "") {
-                                            echo "/fotos/padrao.png";
-                                        } else {
                                             echo "/fotos/" . $row['caminho'];
+                                        } else {
+                                            
+                                            echo "/fotos/padrao.png";
                                         }?>"
                                             class="card-img-top">
                                         <div class="card-body">
                                             <div class="input-group mb-3">
                                                 <?php
-                                                $acao=$_GET['acao'];
                                                 if(isset($_GET['id'])&&isset($_GET['acao']) && $acao == "editar" && $row['caminho']==""){
-                                                    echo "<input type='file' name='fileName' id='fileName' accept='image/*' onchange='loadFile(event)'>";
+                                                    echo "<input type='text' id='fileName' name='fileName' class='form-control'/>";
                                                 }else{
-                                                    echo "<input type='text' id='fileName' name='fileName' class='form-control' value=$row[caminho] hidden/>";
+                                                    echo "<input type='file' name='fileName' id='fileName' accept='image/*' onchange='loadFile(event)'>";
                                                 }
                                                 ?>
                                             </div>
