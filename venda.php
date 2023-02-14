@@ -210,9 +210,9 @@ include "conexao.php";
                                             <thead>
                                                 <tr>
                                                     <th>ID Venda</th>
-                                                    <th>Cliente</th>
+                                                    <th> Nome Cliente</th>
                                                     <th>Produto</th>
-                                                    <th>OS</th>
+                                                    <th>Nº OS</th>
                                                     <th>Forma de Pagamento</th>
                                                     <th>Data da Venda</th>
                                                     
@@ -220,6 +220,11 @@ include "conexao.php";
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td>s</td>
+                                                    <td>s</td>
+                                                    <td>s</td>
+                                                    <td>s</td>
+                                                    <td>s</td>
                                                     <td>s</td>
                                                 </tr>
                                             </tbody>
