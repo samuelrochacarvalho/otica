@@ -266,8 +266,8 @@
                     } else {
                     
                     }
-                    $sql = " INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,quantidade,caminho,dataLancamento)
-                     VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda','$qAtual','$novaimagem','$hoje');";
+                    $sql = " INSERT INTO produtos (nome,referencia,codigo,unidade,fornecedores,custo,venda,quantidade,estoqueAtual,caminho,dataLancamento)
+                     VALUES ('$nome','$referencia','$codigo','$unidade','$fornecedor','$custo','$venda','$qAtual','$qAtual','$novaimagem','$hoje');";
 
                     include "conexao.php";
                     if (mysqli_query($conn, $sql)) {

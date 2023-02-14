@@ -292,35 +292,35 @@ if ((isset($_GET['acao'])) && $_GET['acao'] == "editar" && (isset($_GET['id'])))
                                     <span class="input-group-text" for="fornecedor" id="fornecedor">FORNECEDOR:</span>
                                     <select class="form-select" name="fornecedor" id="fornecedor">
                                         <option value="">Selecione</option>
-                                        <option value="1" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "1")) {
+                                        <option value="Dilucas" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "1")) {
                                             echo "selected";
                                         } ?>>
                                             Dilucas</option>
-                                        <option value="2" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "2")) {
+                                        <option value="Rayban" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "2")) {
                                             echo "selected";
                                         } ?>>
                                             Rayban</option>
-                                        <option value="3" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "3")) {
+                                        <option value="Fiamma" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "3")) {
                                             echo "selected";
                                         } ?>>
                                             Fiamma</option>
-                                        <option value="4" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "4")) {
+                                        <option value="Lavorato" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "4")) {
                                             echo "selected";
                                         } ?>>
                                             Lavorato</option>
-                                        <option value="5" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "5")) {
+                                        <option value="Cadri" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "5")) {
                                             echo "selected";
                                         } ?>>
                                             Cadri</option>
-                                        <option value="6" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "6")) {
+                                        <option value="Fahi" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "6")) {
                                             echo "selected";
                                         } ?>>
                                             Fahi</option>
-                                        <option value="7" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "7")) {
+                                        <option value="DG" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "7")) {
                                             echo "selected";
                                         } ?>>
                                             DG</option>
-                                        <option value="8" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "8")) {
+                                        <option value="GRAZI" <?php if (isset($_GET['id']) && ($row['fornecedores'] == "8")) {
                                             echo "selected";
                                         } ?>>
                                             GRAZI</option>

@@ -263,7 +263,7 @@
                                                             </td>
                                                             
                                                             <td>
-                                                                <?= $student['fornecedores']; ?>
+                                                                <?=$student['fornecedores']; ?>
                                                             </td>
                                                             <td><?= $student['custo']; ?></td>
                                                             <td><?= $student['venda']; ?></td>

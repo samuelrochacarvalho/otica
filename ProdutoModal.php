@@ -43,12 +43,14 @@ if (mysqli_num_rows($query_run) > 0) {
                 <div class='row'>
                 <table class='table table-bordered table-striped'>
                     <tr>
-                        <th>Preço de Custo</th>
-                        <th>Prenço de Venda</th>
+                        <th>Custo</th>
+                        <th>Valor de Venda</th>
                         <th>Lucro Real</th>
                         <th>% Lucro</th>
-                        <th>Quantidade</th>
+                        <th>Qt.Lançada</th>
+                        <th>Q. Estoque</th>
                         <th>Data de Entrada</th>
+                        
                     </tr>
                     <tr >
                         <td>".$produto['custo'].",00 R$</td>
@@ -56,6 +58,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <td>".($produto['venda']-$produto['custo']).",00 R$</td>
                         <td>".((($produto['venda']-$produto['custo'])*100)/$produto['custo'])." %</td>
                         <td>".$produto['quantidade']."</td>
+                        <td>".$produto['estoqueAtual']."</td>
                         <td>".$produto['dataLancamento']."</td>
                     </tr>
                     
