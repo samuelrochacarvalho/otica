@@ -201,11 +201,13 @@ include "conexao.php";
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Lista de Vendas
-                                            <a href="cadProdutos.php" class="btn btn-primary float-end">Nova Venda</a>
+                                            <a href="cadVendas.php" class="btn btn-primary float-end">Nova Venda</a>
                                         </h4>
                                     </div>
                                     <div class="card-body">
 
+
+                                    
                                         <table class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>

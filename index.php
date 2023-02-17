@@ -111,7 +111,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="venda.php">
               <span data-feather="bar-chart-2" class="align-text-bottom"></span>
               Venda
             </a>
