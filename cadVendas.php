@@ -278,12 +278,76 @@ $date = date('Y-m-d');
                             </div>
                         </div>
                     </div>
-
-
                     <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
                         <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Produto e Serviços</div>
-                    </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <input class="form-control" type="search"
+                                        placeholder="Pesquisa Produtos por Nome, referencia" aria-label="Search"
+                                        style="border-right: none;">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text" style="background-color: #FFF"><i
+                                                class="fas fa-search"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text" style="background-color: #FFF"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                                            </svg></div>
+                                    </div>
+                                    <input type="number" class="form-control" placeholder="quantidade">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text" style="background-color: #FFF"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
+                                                <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                                <path
+                                                    d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
+                                            </svg></div>
+                                    </div>
+                                    <input type="number" class="form-control" placeholder="preço de venda">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-secondary" class="btn btn-info"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#chapter-Venda">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cash" viewBox="0 0 16 16">
+                                        <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+                                        <path
+                                            d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z">
+                                        </path>
+                                    </svg>
+                                    adicionar item
+                                </button>
 
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="accordion" id="chapters">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-5">
+                                </h2>
+                                <div id="chapter-Venda" class="accordion-collapse collapse" aria-labelledby="heading-5"
+                                    data-bs-parent="#chapters">
+                                    <div class="accordion-body">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
                         <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Finalização-Cliente</div>
                     </div>
@@ -311,6 +375,10 @@ $date = date('Y-m-d');
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
         </script>
     <script src="dashboard.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </body>
 
 </html>

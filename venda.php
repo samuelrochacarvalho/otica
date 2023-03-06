@@ -217,6 +217,7 @@ include "conexao.php";
                                                     <th>Nº OS</th>
                                                     <th>Forma de Pagamento</th>
                                                     <th>Data da Venda</th>
+                                                    <th>Ação</th>
                                                     
                                                 </tr>
                                             </thead>
@@ -228,6 +229,8 @@ include "conexao.php";
                                                     <td>s</td>
                                                     <td>s</td>
                                                     <td>s</td>
+                                                    <td><a href="?visualizar=true&id="
+                                                                    class="btn btn-danger btn-sm">Excluir</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
