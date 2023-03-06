@@ -281,7 +281,7 @@ $date = date('Y-m-d');
                     <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
                         <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Produto e Serviços</div>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <input class="form-control" type="search"
                                         placeholder="Pesquisa Produtos por Nome, referencia" aria-label="Search"
@@ -292,7 +292,7 @@ $date = date('Y-m-d');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col">
                                 <div class="input-group">
                                     <div class="input-group-append">
                                         <div class="input-group-text" style="background-color: #FFF"><svg
@@ -334,15 +334,14 @@ $date = date('Y-m-d');
 
                             </div>
                         </div>
-                        <hr>
+                        <br>
+                        
                         <div class="accordion" id="chapters">
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-5">
-                                </h2>
                                 <div id="chapter-Venda" class="accordion-collapse collapse" aria-labelledby="heading-5"
                                     data-bs-parent="#chapters">
                                     <div class="accordion-body">
-                                        
+
                                     </div>
                                 </div>
                             </div>
