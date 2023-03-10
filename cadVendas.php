@@ -335,21 +335,103 @@ $date = date('Y-m-d');
                             </div>
                         </div>
                         <br>
-                        
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table caption-top">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Tipo / Nome / Referencia / Produto ou Serviço</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                    <table class="table caption-top">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Qtd</th>
+                                                <th scope="col">Val. Unit. Acre/Desc</th>
+                                                <th scope="col">Val. Un. Liq.</th>
+                                                <th scope="col">Val. Total</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         <div class="accordion" id="chapters">
                             <div class="accordion-item">
                                 <div id="chapter-Venda" class="accordion-collapse collapse" aria-labelledby="heading-5"
                                     data-bs-parent="#chapters">
                                     <div class="accordion-body">
-
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    Produto aqui
+                                                </div>
+                                                <div class="col">
+                                                    valores da tabela aqui
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <b> Valor Líquido:</b>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <p style="text-align: right;">Valor Liquido</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <b> Desconto:</b>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <b>Acréscimo:</b>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <b>Valor Total:</b>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <p style="text-align: right;">Valor Total</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                        <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Finalização-Cliente</div>
-                    </div>
+                        <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
+                            <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Finalização-Cliente</div>
+                        </div>
                 </form>
                 <!--fechamento de linha-->
             </main>
