@@ -6,6 +6,7 @@ $date = date('Y-m-d');
 ?>
 <?php
 include "conexao.php";
+$produto="";
 ?>
 
 <head>
@@ -287,21 +288,23 @@ include "conexao.php";
                             <div class="col-6">
                                 <div class="input-group">
                                     <input class="form-control" type="search"
-                                        placeholder="Pesquisa Produtos por Nome, referencia" list="Lprodutos" name="produto"
-                                        id="produto">
+                                        placeholder="Pesquisa Produtos por Nome, referencia" list="Lprodutos"
+                                        name="produto" id="produto" onchange="teste();">
 
                                     <datalist id="Lprodutos">
-                                    <?php
+                                        <?php
                                         $sql = "select * from produtos";
                                         $query_run = mysqli_query($conn, $sql);
                                         if (mysqli_num_rows($query_run) > 0) {
-                                            foreach ($query_run as $cliente) {
-                                                echo "<option  value='" . $cliente['referencia'] . "'>" . $cliente['nome'] . " </option>";
+                                            foreach ($query_run as $produto) {
+                                                echo "<option  value='" . $produto['nome'] ." ,codigo:".$produto['id_Produtos']. "'>" ." Id interno:". $produto['id_Produtos']." Referencia:". $produto['referencia'] . " Preço: ". $produto['venda']." R$ QTD: ". $produto['quantidade']." </option>";
                                             }
                                         }
                                         ?>
                                     </datalist>
-
+                                    <?php
+                                    print_r("<div id='resultado'class='resultado' hidden></div>");
+                                    ?>
                                     <div class="input-group-append">
                                         <div class="input-group-text" style="background-color: #FFF"><i
                                                 class="fas fa-search"></i></div>
@@ -318,7 +321,7 @@ include "conexao.php";
                                                     d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                                             </svg></div>
                                     </div>
-                                    <input type="number" class="form-control" placeholder="quantidade">
+                                    <input type="number" class="form-control" id="quant" name="quant" placeholder="quantidade">
                                 </div>
                             </div>
                             <div class="col">
@@ -332,7 +335,7 @@ include "conexao.php";
                                                     d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
                                             </svg></div>
                                     </div>
-                                    <input type="number" class="form-control" placeholder="preço de venda">
+                                    <input type="number" id="Pvenda" name="Pvenda"class="form-control" placeholder="preço de venda">
                                 </div>
                             </div>
                             <div class="col">
@@ -484,6 +487,8 @@ include "conexao.php";
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script type="text/javascript" src="personalizado.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,15 @@
 <?php
 
-$servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$dbname = "celke";
+$host = 'localhost';
 
-//Criar a conexao
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+// db
+$db_name = 'mydb';
+$db_host = 'localhost';
+$db_user = 'root';
+$db_pass = '';
+
+try {
+  $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+} catch (\Throwable $th) {
+  throw $th;
+}

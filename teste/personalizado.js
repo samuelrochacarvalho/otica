@@ -10,6 +10,7 @@ $(function(){
 			}
 			$.post('proc_pesq_user.php', dados, function(retorna){
 				//Mostra dentro da ul os resultado obtidos 
+				
 				$(".resultado").html(retorna);
 			});
 		}
