@@ -149,3 +149,4 @@ show tables;
 select * from produtos;
 USE `mydb` ;
 select * from clientes where nome like '%%' or cpf like '%%';
+select * from Produtos WHERE id_Produtos='3' & referencia='1237d4848'

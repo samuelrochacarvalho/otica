@@ -4,6 +4,9 @@
 date_default_timezone_set('America/Sao_Paulo');
 $date = date('Y-m-d');
 ?>
+<?php
+include "conexao.php";
+?>
 
 <head>
     <meta charset="utf-8">
@@ -284,8 +287,21 @@ $date = date('Y-m-d');
                             <div class="col-6">
                                 <div class="input-group">
                                     <input class="form-control" type="search"
-                                        placeholder="Pesquisa Produtos por Nome, referencia" aria-label="Search"
-                                        style="border-right: none;">
+                                        placeholder="Pesquisa Produtos por Nome, referencia" list="Lprodutos" name="produto"
+                                        id="produto">
+
+                                    <datalist id="Lprodutos">
+                                    <?php
+                                        $sql = "select * from produtos";
+                                        $query_run = mysqli_query($conn, $sql);
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $cliente) {
+                                                echo "<option  value='" . $cliente['referencia'] . "'>" . $cliente['nome'] . " </option>";
+                                            }
+                                        }
+                                        ?>
+                                    </datalist>
+
                                     <div class="input-group-append">
                                         <div class="input-group-text" style="background-color: #FFF"><i
                                                 class="fas fa-search"></i></div>
@@ -321,7 +337,7 @@ $date = date('Y-m-d');
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-outline-secondary" class="btn btn-info"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#chapter-Venda">
+                                    data-bs-toggle="collapse" data-bs-target="#chapter-Venda" onclick="funcao1()">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-cash" viewBox="0 0 16 16">
                                         <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
@@ -331,7 +347,6 @@ $date = date('Y-m-d');
                                     </svg>
                                     adicionar item
                                 </button>
-
                             </div>
                         </div>
                         <br>
@@ -368,7 +383,15 @@ $date = date('Y-m-d');
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col">
-                                                    Produto aqui
+                                                    <?php
+                                                    $sql = "select * from Produtos WHERE id_Produtos='3' && referencia='1237d4848'";
+                                                    $query_run = mysqli_query($conn, $sql);
+                                                    if (mysqli_num_rows($query_run) > 0) {
+                                                        foreach ($query_run as $venda) {
+                                                            echo "1 - COD: " . $venda['referencia'] . " VENDA: " . $venda['nome'] . " FORNECEDOR: " . $venda['fornecedores'] . " UN: " . $venda['unidade'];
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <div class="col">
                                                     valores da tabela aqui
@@ -429,9 +452,10 @@ $date = date('Y-m-d');
                                 </div>
                             </div>
                         </div>
-                        <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
-                            <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Finalização-Cliente</div>
-                        </div>
+                    </div>
+                    <div class=" shadow p-3 mb-5 bg-body-tertiary rounded container">
+                        <div class="shadow-sm p-3 mb-1 bg-body-tertiary rounded">Finalização-Cliente</div>
+                    </div>
                 </form>
                 <!--fechamento de linha-->
             </main>
