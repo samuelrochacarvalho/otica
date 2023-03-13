@@ -1,9 +1,10 @@
+const produto = [];
 function teste() {
+	
 	var quant = document.getElementById("quant");
 	quant.value = 1;
 
 	var venda = document.getElementById("Pvenda");
-
 
 	var resultFinal = "";
 
@@ -29,18 +30,28 @@ function teste() {
 				var resultado = document.getElementById("resultado");
 				console.log(resultado.innerHTML);
 				resultFinal = resultado.innerHTML;
-				alert(resultFinal);
+				//alert(resultFinal);
 
 				resultado1 = resultFinal.split("/");
-				console.log(resultado1);
+				//console.log(resultado1);
 				var valVenda = parseInt(resultado1[4]);
-				venda.value =valVenda;
-		});
+				venda.value = valVenda;
+				AdicionarCarrinho(resultado1);
+			});
+		}
 	}
-}
 	else {
-	alert('codigo do produto não localizado. error pg: cadVendas.php/personalizado.js');
-}
+		alert('codigo do produto não localizado. error pg: cadVendas.php/personalizado.js');
+	}
 
+};
+function AdicionarCarrinho(prod){
+	var prodA;
+	prodA=prod;
+	produto.push(prod);
+	console.log(produto);
+};
 
+function carrinho(){
+	alert("oi");
 }

@@ -6,7 +6,7 @@ $date = date('Y-m-d');
 ?>
 <?php
 include "conexao.php";
-$produto="";
+$produto = "";
 ?>
 
 <head>
@@ -297,7 +297,7 @@ $produto="";
                                         $query_run = mysqli_query($conn, $sql);
                                         if (mysqli_num_rows($query_run) > 0) {
                                             foreach ($query_run as $produto) {
-                                                echo "<option  value='" . $produto['nome'] ." ,codigo:".$produto['id_Produtos']. "'>" ." Id interno:". $produto['id_Produtos']." Referencia:". $produto['referencia'] . " Preço: ". $produto['venda']." R$ QTD: ". $produto['quantidade']." </option>";
+                                                echo "<option  value='" . $produto['nome'] . " ,codigo:" . $produto['id_Produtos'] . "'>" . " Id interno:" . $produto['id_Produtos'] . " Referencia:" . $produto['referencia'] . " Preço: " . $produto['venda'] . " R$ QTD: " . $produto['quantidade'] . " </option>";
                                             }
                                         }
                                         ?>
@@ -321,7 +321,8 @@ $produto="";
                                                     d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                                             </svg></div>
                                     </div>
-                                    <input type="number" class="form-control" id="quant" name="quant" placeholder="quantidade">
+                                    <input type="number" class="form-control" id="quant" name="quant"
+                                        placeholder="quantidade">
                                 </div>
                             </div>
                             <div class="col">
@@ -335,12 +336,13 @@ $produto="";
                                                     d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
                                             </svg></div>
                                     </div>
-                                    <input type="number" id="Pvenda" name="Pvenda"class="form-control" placeholder="preço de venda">
+                                    <input type="number" id="Pvenda" name="Pvenda" class="form-control"
+                                        placeholder="preço de venda">
                                 </div>
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-outline-secondary" class="btn btn-info"
-                                    data-bs-toggle="collapse" data-bs-target="#chapter-Venda" onclick="funcao1()">
+                                    data-bs-toggle="collapse" data-bs-target="#chapter-Venda" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-cash" viewBox="0 0 16 16">
                                         <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
@@ -463,7 +465,6 @@ $produto="";
                 <!--fechamento de linha-->
             </main>
         </div>
-
     </div>
     <!--fim do container pagina-->
     <!--fim pagina-->
