@@ -342,7 +342,7 @@ $produto = "";
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-outline-secondary" class="btn btn-info"
-                                    data-bs-toggle="collapse" data-bs-target="#chapter-Venda" >
+                                    data-bs-toggle="collapse" data-bs-target="#chapter-Venda" onclick="carrinho();">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-cash" viewBox="0 0 16 16">
                                         <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
@@ -388,15 +388,9 @@ $produto = "";
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col">
-                                                    <?php
-                                                    $sql = "select * from Produtos WHERE id_Produtos='3' && referencia='1237d4848'";
-                                                    $query_run = mysqli_query($conn, $sql);
-                                                    if (mysqli_num_rows($query_run) > 0) {
-                                                        foreach ($query_run as $venda) {
-                                                            echo "1 - COD: " . $venda['referencia'] . " VENDA: " . $venda['nome'] . " FORNECEDOR: " . $venda['fornecedores'] . " UN: " . $venda['unidade'];
-                                                        }
-                                                    }
-                                                    ?>
+                                                    <div id="prodV">
+                                                        
+                                                    </div>
                                                 </div>
                                                 <div class="col">
                                                     valores da tabela aqui

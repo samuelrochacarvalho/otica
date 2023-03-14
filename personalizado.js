@@ -1,6 +1,6 @@
 const produto = [];
 function teste() {
-	
+
 	var quant = document.getElementById("quant");
 	quant.value = 1;
 
@@ -45,13 +45,22 @@ function teste() {
 	}
 
 };
-function AdicionarCarrinho(prod){
+function AdicionarCarrinho(prod) {
 	var prodA;
-	prodA=prod;
+	prodA = prod;
 	produto.push(prod);
 	console.log(produto);
 };
 
-function carrinho(){
-	alert("oi");
+function carrinho() {
+	var elemento = document.getElementById("chapter-Venda");
+	if (elemento) {
+		document.getElementById('chapter-Venda').setAttribute('id', 'chapter-Vendas');
+		var lista = document.getElementById('prodV');
+		lista.innerHTML = produto;
+	} else {
+		console.log(" não existe");
+	}
+	var lista = document.getElementById('prodV');
+	lista.innerHTML = produto;
 }
