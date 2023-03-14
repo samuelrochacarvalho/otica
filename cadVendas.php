@@ -371,8 +371,7 @@ $produto = "";
                                         <thead>
                                             <tr>
                                                 <th scope="col">Qtd</th>
-                                                <th scope="col">Val. Unit. Acre/Desc</th>
-                                                <th scope="col">Val. Un. Liq.</th>
+
                                                 <th scope="col">Val. Total</th>
                                             </tr>
                                         </thead>
@@ -387,15 +386,20 @@ $produto = "";
                                     <div class="accordion-body">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col">
-                                                    <div id="prodV">
-                                                        
+                                                <table class="table-primary">
+                                                    <div class="col">
+                                                        <div id="prodV">
+
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col">
-                                                    valores da tabela aqui
-                                                </div>
+                                                    <div class="col">
+                                                        <div id="quantValV">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </table>
                                             </div>
+
                                             <br><br>
                                             <div class="container">
                                                 <div class="row">

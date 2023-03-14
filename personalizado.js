@@ -1,4 +1,5 @@
-const produto = [];
+let produto = [];
+var quantCarrinho=0;
 function teste() {
 
 	var quant = document.getElementById("quant");
@@ -28,7 +29,7 @@ function teste() {
 				$(".resultado").html(retorna);
 
 				var resultado = document.getElementById("resultado");
-				console.log(resultado.innerHTML);
+				//console.log(resultado.innerHTML);
 				resultFinal = resultado.innerHTML;
 				//alert(resultFinal);
 
@@ -49,18 +50,30 @@ function AdicionarCarrinho(prod) {
 	var prodA;
 	prodA = prod;
 	produto.push(prod);
-	console.log(produto);
+	//console.log(produto);
 };
 
 function carrinho() {
+	let listaP=produto;
 	var elemento = document.getElementById("chapter-Venda");
-	if (elemento) {
-		document.getElementById('chapter-Venda').setAttribute('id', 'chapter-Vendas');
-		var lista = document.getElementById('prodV');
-		lista.innerHTML = produto;
-	} else {
-		console.log(" não existe");
-	}
 	var lista = document.getElementById('prodV');
-	lista.innerHTML = produto;
+	var quantValV = document.getElementById('quantValV');
+	var inptQuant = document.getElementById('quant');
+	if (elemento) {
+		quantCarrinho=1;
+		document.getElementById('chapter-Venda').setAttribute('id', 'chapter-Vendas');
+		lista.innerHTML="<table class='table-info'><tr><td>"+quantCarrinho+"- Cod.: "+(listaP[quantCarrinho-1][1])+" Nome: "+(listaP[quantCarrinho-1][2])+" Ref.:"+(listaP[quantCarrinho-1][3])+" Fornec.:"+(listaP[quantCarrinho-1][6])+"</td></tr></table>";
+		console.log(listaP);
+		quantValV.innerHTML="<label id='getQuant'>"+inptQuant.value+"</label><label id='getVal' style='text-align:right; width:50%;'>"+listaP[quantCarrinho-1][4]+",00R$</label><br>";
+	} else {
+		quantCarrinho++;
+		var atual=document.getElementById('prodV');
+		atual=atual.innerText;
+		lista.innerHTML=atual+"<table class='table-info'><tr><td>"+quantCarrinho+"- Cod.: "+(listaP[quantCarrinho-1][1])+" Nome: "+(listaP[quantCarrinho-1][2])+" Ref.:"+(listaP[quantCarrinho-1][3])+" Fornec.:"+(listaP[quantCarrinho-1][6])+"</td></tr></table></br>";
+		
+		
+		var atual1=document.getElementById('quantValV');
+		atual1=atual1.innerHTML;
+		quantValV.innerHTML=atual1+"<label id='getQuant'>"+inptQuant.value+"</label><label id='getVal' style='text-align:right; width:50%;'>"+listaP[quantCarrinho-1][4]+",00R$</label><br>";
+	}	
 }
