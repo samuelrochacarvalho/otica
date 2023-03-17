@@ -18,7 +18,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <script src="js/calculos.js"></script>
 </head>
 
 <body id="page-top">
@@ -174,14 +174,14 @@
                                 <div class="mb-3">
                                     <label for="valorVenda" class="form-label">Valor de Venda</label>
                                     <input type="number" class="form-control" id="valorVenda"
-                                        placeholder="0,00 R$">
+                                        placeholder="0,00 R$" oninput="margem(this)">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="valorCusto" class="form-label">Valor de Custo</label>
                                     <input type="number" class="form-control" id="valorCusto"
-                                        placeholder="0,00 R$">
+                                        placeholder="0,00 R$" oninput="margem(this)">
                                 </div>
                             </div>
                         </div>
@@ -192,14 +192,14 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="margemLucro" class="form-label">Margem de Lucro %</label>
-                                    <input type="number" class="form-control" id="margemLucroP"
+                                    <input type="text" class="form-control" id="margemLucroP"
                                         placeholder="0,00 R$" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="margemLucroR" class="form-label">Margem de Lucro R$</label>
-                                    <input type="number" class="form-control" id="margemLucroR"
+                                    <input type="text" class="form-control" id="margemLucroR"
                                         placeholder="0,00 R$" disabled>
                                 </div>
                             </div>
