@@ -19,6 +19,16 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="js/calculos.js"></script>
+    <script>
+        var loadFile = function (event) {
+            var output = document.getElementById('imgArmacao');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+
+        };
+    </script>
 </head>
 
 <body id="page-top">
@@ -105,57 +115,41 @@
 
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            <form action="Cadastros.php" method="post" enctype="multipart/form-data">
             <!-- Main Content -->
             <div id="content">
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="card">
-                        <img id="imgArmacao" name="imgArmacao" src="<?php if (isset($_GET['id']) && $row['caminho'] == "") {
-                            echo "/fotos/" . $row['caminho'];
-                        } else {
-                            echo "/fotos/padrao.png";
-                        } ?>" class="card-img-top">
-                        <div class="card-body">
-                            <div class="input-group mb-3">
-                                <?php
-                                if (isset($_GET['id']) && isset($_GET['acao']) && $acao == "editar") {
-                                    echo "<input type='hidden' id='fileName' name='fileName' class='form-control'/>";
-                                } else {
-                                    echo "<input type='file' name='fileName' id='fileName' accept='image/*' onchange='loadFile(event)'>";
-                                }
-                                ?>
+                    <div class="card" style="width: 20rem;">
+                            <img id="imgArmacao" name="imgArmacao" src="../fotos/padrao.jpeg" class="card-img-top">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <input type='file' name='fileName' id='fileName' accept='image/*' onchange='loadFile(event)'/>
+                                </div>
                             </div>
-                        </div>
                     </div>
-
-
 
                     <div class="mb-3">
                         <label for="nomeProduto" class="form-label">Nome do Produto</label>
-                        <input type="text" class="form-control" id="nomeProduto"
-                            placeholder="Ex: Armação Acettato">
+                        <input type="text" class="form-control" name="nomeProduto" id="nomeProduto" placeholder="Ex: Armação Acettato">
                     </div>
 
                     <div class="mb-3">
                         <label for="referencia" class="form-label">Referencia</label>
-                        <input type="text" class="form-control" id="referencia"
-                            placeholder="Ex: 3445F4 C7">
+                        <input type="text" class="form-control" name="referencia" id="referencia" placeholder="Ex: 3445F4 C7">
                     </div>
 
                     <div class="mb-3">
                         <label for="quantidade" class="form-label">Quantidade:</label>
-                        <input type="number" class="form-control" id="quantidade"
-                            placeholder="Ex: nº 1">
+                        <input type="number" class="form-control" name="quantidade" id="quantidade" placeholder="Ex: nº 1">
                     </div>
 
                     <div class="mb-3">
                         <label for="fornecedores" class="form-label">Fornecedores:</label>
-                        <select class="form-control" id="fornecedores" aria-label="Default select example">
+                        <select class="form-control" id="fornecedores" name="fornecedores" aria-label="Default select example">
                             <option value="" selected>Selecione</option>
                             <option value="1">DiLuccas</option>
                             <option value="2">Rayban</option>
@@ -173,15 +167,15 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="valorVenda" class="form-label">Valor de Venda</label>
-                                    <input type="number" class="form-control" id="valorVenda"
-                                        placeholder="0,00 R$" oninput="margem(this)">
+                                    <input type="number" class="form-control" id="valorVenda" name="valorVenda" placeholder="0,00 R$"
+                                        oninput="margem(this)">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="valorCusto" class="form-label">Valor de Custo</label>
-                                    <input type="number" class="form-control" id="valorCusto"
-                                        placeholder="0,00 R$" oninput="margem(this)">
+                                    <input type="number" class="form-control" id="valorCusto" name="valorCusto" placeholder="0,00 R$"
+                                        oninput="margem(this)">
                                 </div>
                             </div>
                         </div>
@@ -192,15 +186,15 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="margemLucro" class="form-label">Margem de Lucro %</label>
-                                    <input type="text" class="form-control" id="margemLucroP"
-                                        placeholder="0,00 R$" disabled>
+                                    <input type="text" class="form-control" id="margemLucroP" placeholder="0,00 R$"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="margemLucroR" class="form-label">Margem de Lucro R$</label>
-                                    <input type="text" class="form-control" id="margemLucroR"
-                                        placeholder="0,00 R$" disabled>
+                                    <input type="text" class="form-control" id="margemLucroR" placeholder="0,00 R$"
+                                        disabled>
                                 </div>
                             </div>
                         </div>
@@ -209,14 +203,13 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <a href="#" class="btn btn-success">Cadastrar</a>
+                                <input type="submit" name="moveFile" class="btn btn-success"value="Submit">
                             </div>
                             <div class="col">
                                 <a type="button" href="index.html" class="btn btn-danger">Cancelar</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
