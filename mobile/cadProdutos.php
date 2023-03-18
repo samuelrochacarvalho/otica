@@ -203,7 +203,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <input type="submit" name="moveFile" class="btn btn-success"value="Submit">
+                                <input type="submit" name="moveFile" class="btn btn-success" value="Salvar">
                             </div>
                             <div class="col">
                                 <a type="button" href="index.html" class="btn btn-danger">Cancelar</a>
