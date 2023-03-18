@@ -420,7 +420,7 @@ $produto = "";
                                                                     <b> Desconto:</b>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <input type="text" class="form-control">
+                                                                    
                                                                 </div>
                                                                 <div class="col">
                                                                     <input type="text" class="form-control">
@@ -431,7 +431,7 @@ $produto = "";
                                                                     <b>Acréscimo:</b>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <input type="text" class="form-control">
+                                                                    
                                                                 </div>
                                                                 <div class="col">
                                                                     <input type="text" class="form-control">
